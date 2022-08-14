@@ -1,0 +1,42 @@
+{
+  "header": {
+    "navTop": ["Новости", "Контакты", "Личный Кабинет"],
+    "navBottom": [
+      "Общество",
+      "События",
+      "Образование",
+      "Клинические протоколы",
+      "Новости в медицине"
+    ]
+  },
+  "aboutUs": {
+    "title": "О нас",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lobortis rhoncus hendrerit. Quisque mattis ante sit amet dictum finibus.",
+    "joinBtn": "Вступить",
+    "readMoreBtn": "Подробнее"
+  },
+  "upcommingEvents": "Предстоящие мероприятия",
+  "becomeMember": {
+    "title": "Станьте частью сообщества!",
+    "text1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lobortis rhoncus hendrerit. Quisque mattis ante sit amet dictum finibus. Sed scelerisque augue eget gravida pellentesque.",
+    "text2": "Vivamus ultrices mauris eu lectus fringilla, eu finibus leo lobortis. Morbi quis dui quam. Donec finibus eros nulla, in auctor tortor pharetra a. Ut interdum eros sit amet egestas cursus. Nulla fringilla aliquet varius.",
+    "readMoreBtn": "Узнать больше"
+  },
+  "footer": {
+    "title": "АСРМ",
+    "menuGroups": [
+      [
+        "Меню",
+        "Общество",
+        "События",
+        "Образование",
+        "Клинические протоколы",
+        "Новости в медицине"
+      ],
+      ["Членство", "Войти в мой кабинет", "Стать членом"],
+      ["Ссылки", "European Lung Found", "European Respiratory System"],
+      ["Пресса", "Press queries"]
+    ],
+    "contactUs": "Свяжитесь с нами"
+  }
+}

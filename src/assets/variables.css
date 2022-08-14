@@ -1,0 +1,18 @@
+:root {
+  --font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  --primary-color: #333a4b;
+  --header-top-color: #5dbec4;
+  /* --header-secondary-color: #5cbec5; */
+  --bg-color: #fff;
+  --main-text-color: #f38023;
+  --secondary-color: #17a2ab;
+  --text-color: #005963;
+  --footer-bg-color: #f0f5f6;
+  --footer-border-color: #00acb1;
+  --search-bar-color: #d5e4e6;
+  --search-bar-text-color: #70a2a7;
+  --search-bar-underline: #99bdc1;
+  --active-color: #fafcfc;
+  --menu-title: #c2d7da;
+  --login-bg-color: #fdf1e8;
+}
