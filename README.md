@@ -1,4 +1,4 @@
-# frontend
+# ASRM website
 
 ## Project setup
 ```
