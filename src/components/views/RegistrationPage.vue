@@ -179,7 +179,8 @@ export default {
   methods: {
     submitHandler(e) {
       e.preventDefault();
-      this.$store.dispatch("a/getRegistration");
+      console.log("submitted")
+      // this.$store.dispatch("a/getRegistration");
     },
   },
 };

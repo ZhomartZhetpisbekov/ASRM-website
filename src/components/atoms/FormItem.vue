@@ -8,7 +8,7 @@
       autocomplete="off"
       :placeholder="inputPlaceholder"
       :type="inputType"
-      pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}"
+      pattern="[+][7][(][0-9]{3}[)]-[0-9]{3}-[0-9]{4}"
       :required="inputRequired"
       v-model="modelka"
       @input="committer"
@@ -24,6 +24,7 @@
       @input="committer"
       :minlength="inputType == 'password' ? 8 : 1"
     />
+    <span class="validity"></span>
   </div>
 </template>
 
@@ -92,6 +93,20 @@ input {
   font-weight: 300;
   /* margin-bottom: 1rem; */
   align-content: stretch;
+}
+
+input:invalid + span:after {
+  position: absolute;
+  content: "✖";
+  padding-left: 5px;
+  color: #8b0000;
+}
+
+input:valid + span:after {
+  position: absolute;
+  content: "✓";
+  padding-left: 5px;
+  color: #009000;
 }
 
 .date-class {
