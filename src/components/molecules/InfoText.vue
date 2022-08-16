@@ -95,6 +95,7 @@ img {
 
 .parsed-html >>> a {
   text-decoration: underline;
+  color: var(--text-color);
 }
 
 .active >>> p:not(:first-child, :nth-child(2)) {

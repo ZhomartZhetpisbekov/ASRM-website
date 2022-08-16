@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: `https://kais-baran.herokuapp.com`,
+  baseURL: `http://13.50.48.201`,
 });
 
 api.interceptors.request.use(
