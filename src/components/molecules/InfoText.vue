@@ -1,7 +1,7 @@
 <template>
   <div v-if="category" class="info-text">
     <h1 class="info-text_title">{{ category.title }}</h1>
-    <img :src="`${imgPath}${category.main_image}`" alt="" />
+    <img v-if="category.main_image" :src="`${imgPath}${category.main_image}`" alt="" />
     <div
       class="parsed-html"
       :class="{ active: isShortText }"
@@ -69,13 +69,14 @@ export default {
 
 img {
   width: 100%;
+  margin-bottom: 1rem;
 }
 
 .parsed-html {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1rem 0;
+  margin-bottom: 1rem;
   line-height: 1.5rem;
 }
 

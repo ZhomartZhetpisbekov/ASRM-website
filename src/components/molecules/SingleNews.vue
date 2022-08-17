@@ -1,5 +1,5 @@
 <template>
-  <div class="single-news-block">
+  <div class="single-news-container">
     <div @click="goToArticle" class="img-container">
       <img :src="imgPath" alt="" />
       <span class="mobile-view-date">{{ date }}</span>
@@ -36,18 +36,28 @@ export default {
     articleId: {
       type: Number,
     },
+    ind: {
+      type: Number,
+    },
   },
-  data() {
-    return {
-      htmlString: this.text,
-      shortText: new DOMParser()
+  computed: {
+    shortText() {
+      return new DOMParser()
         .parseFromString(this.text, "text/html")
-        .querySelector("p").textContent,
-    };
+        .querySelector("p").textContent;
+    },
+    category() {
+      return this.$router.currentRoute.params.category;
+    }
   },
   methods: {
     goToArticle() {
-      this.$router.push(`/news/${this.articleId}`);
+      if (this.ind != null) {
+        this.$router.push({name: 'EventArticle', params: {category: this.category, article: this.ind}});
+      }
+      else {
+        this.$router.push(`/news/${this.articleId}`);
+      }
     },
   },
 };
@@ -64,9 +74,8 @@ h3 {
 span {
   color: #70a2a7;
 }
-.single-news-block {
+.single-news-container {
   /* border: 1px solid green; */
-  padding: 0 8rem;
   display: flex;
   margin-bottom: 2rem;
 }
@@ -96,11 +105,11 @@ span {
   cursor: pointer;
 }
 
-@media screen and (max-width: 65rem) {
+/* @media screen and (max-width: 65rem) {
   .single-news-block {
     padding: 0 2rem;
   }
-}
+} */
 
 @media screen and (max-width: 40rem) {
   /* .single-news-block {

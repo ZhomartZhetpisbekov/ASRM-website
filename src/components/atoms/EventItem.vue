@@ -47,6 +47,8 @@ export default {
 
 img {
   width: 100%;
+  height: 18rem;
+  object-fit: cover;
   display: block;
 }
 
@@ -66,20 +68,14 @@ img {
   white-space: normal;
 }
 
-/* p {
-  background: #f0f5f6;
-  color: #000;
-  padding: 15px 20px;
-  font-size: 1rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  margin: auto;
-  height: 60px;
-  width: 100%;
-} */
-
 .read-more {
   color: #17a2ab;
+}
+
+@media screen and (max-width: 65rem) {
+  img {
+    height: 11rem;
+  }
+  
 }
 </style>

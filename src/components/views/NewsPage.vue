@@ -1,9 +1,6 @@
 <template>
   <div class="news-page">
-    <!-- <div class="banner">
-      <h2>Новости</h2>
-    </div> -->
-    <h2>{{ $t('header.navBottom[4]') }}</h2>
+    <h2>{{ $t("header.navBottom[4]") }}</h2>
 
     <div v-if="news.length > 0" class="news-container">
       <LeadNews
@@ -13,16 +10,17 @@
         :text="news[0].text"
         :date="news[0].date"
       />
-
-      <SingleNews
-        v-for="(item, index) in news.slice(1, newsCount)"
-        :key="index"
-        :articleId="item.id"
-        :imgPath="`${imgPath}${item.main_image}`"
-        :title="item.title"
-        :text="item.text"
-        :date="item.date"
-      />
+      <div class="single-news-block">
+        <SingleNews
+          v-for="(item, index) in news.slice(1, newsCount)"
+          :key="index"
+          :articleId="item.id"
+          :imgPath="`${imgPath}${item.main_image}`"
+          :title="item.title"
+          :text="item.text"
+          :date="item.date"
+        />
+      </div>
     </div>
 
     <div class="more-news-btn">
@@ -46,32 +44,32 @@ export default {
   data() {
     return {
       newsCount: 4,
-    }
+    };
   },
   mounted() {
     this.fetchNews();
-    ()=>{
+    () => {
       this.newsCount = 4;
-    }
+    };
   },
   methods: {
     async fetchNews() {
       this.loading = true;
-      await this.$store.dispatch("getNews"); 
+      await this.$store.dispatch("getNews");
 
       this.loading = false;
     },
     showMoreNews() {
       this.newsCount += 3;
-    } 
+    },
   },
   computed: {
     imgPath() {
-      return `${api.defaults.baseURL}`
+      return `${api.defaults.baseURL}`;
     },
     news() {
-      return this.$store.state.news
-    }
+      return this.$store.state.news;
+    },
   },
 };
 </script>
@@ -82,7 +80,7 @@ export default {
   margin-top: 13rem;
   width: 100%;
   color: #000;
-  font-family: 'Gotham Pro';
+  font-family: "Gotham Pro";
   letter-spacing: 1.1px;
   line-height: 23px;
 }
@@ -101,6 +99,10 @@ h2 {
   flex-direction: column;
 }
 
+.single-news-block {
+  padding: 0 8rem;
+}
+
 .more-news-btn {
   width: 100%;
   padding: 0 8rem;
@@ -112,7 +114,7 @@ h2 {
 
 .more-news-btn a {
   padding: 10px 20px;
-  background: #00ACB1;
+  background: #00acb1;
   color: #fff;
   border-radius: 30px;
   cursor: pointer;
@@ -125,6 +127,10 @@ h2 {
 
   .news-page {
     margin-top: 8rem;
+  }
+
+  .single-news-block {
+    padding: 0 2rem;
   }
 }
 </style>

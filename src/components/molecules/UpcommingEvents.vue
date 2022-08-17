@@ -10,7 +10,7 @@
           ref="slider"
           :options="options"
         >
-          <slideritem
+          <slideritem 
             v-for="(item, index) in events"
             :key="index"
             class="custom-slider-item"
@@ -121,13 +121,13 @@ h2 {
   }
 }
 
-@media only screen and (max-width: 720px) {
+/* @media only screen and (max-width: 720px) {
   .custom-slider-item {
     width: 80%;
   }
-}
+} */
 
-@media only screen and (max-width: 530px) {
+@media only screen and (max-width: 40rem) {
   .custom-slider-item {
     width: 100%;
   }

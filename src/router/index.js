@@ -4,6 +4,8 @@ import HomePage from "../components/views/HomePage.vue";
 import InformationPage from "../components/views/InformationPage.vue";
 import NewsPage from "../components/views/NewsPage.vue";
 import ArticlePage from "../components/views/ArticlePage.vue";
+import EventArticlePage from "../components/views/EventArticlePage";
+import EventsPage from "../components/views/EventsPage.vue";
 import LoginPage from "../components/views/LoginPage.vue";
 import RegistrationPage from "../components/views/RegistrationPage";
 import AccountPage from "../components/views/AccountPage";
@@ -43,6 +45,18 @@ const routes = [
     path: "/account",
     name: "Account",
     component: AccountPage,
+    props: true,
+  },
+  {
+    path: "/events/:category?",
+    name: "Events",
+    component: EventsPage,
+    props: true,
+  },
+  {
+    path: "/events/:category/:article",
+    name: "EventArticle",
+    component: EventArticlePage,
     props: true,
   },
   {

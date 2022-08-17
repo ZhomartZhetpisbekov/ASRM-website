@@ -38,13 +38,13 @@ export default new Vuex.Store({
           },
           {
             name: "События",
-            path: "events",
+            path: "conference",
             routerName: "Information",
           },
           {
             name: "Образование",
-            path: "education",
-            routerName: "Information",
+            path: "events",
+            routerName: "Events",
           },
           {
             name: "Клинические протоколы",
