@@ -95,6 +95,7 @@ export const userStore = {
         .post("/auth/users/", bodyFormData)
         .then((response) => {
           console.log(response);
+          alert("check email pussy!");
           // commit("a/REGISTER", response.data);
           router.push('/login')
         })

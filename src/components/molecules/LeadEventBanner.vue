@@ -8,6 +8,7 @@
         <a v-for="(item, index) in leadEvent.urls"
           :key="index"
           :href="item.url"
+          @click="goLink"
         >{{ item.text }}</a>
         <!-- <a>{{ leadEvent[0].link }}</a>
         <a>Join</a> -->
@@ -21,6 +22,9 @@ export default {
   name: "LeadEventBanner",
   props: {
     leadEvent: Object,
+  },
+  methods: {
+    
   }
 };
 </script>
