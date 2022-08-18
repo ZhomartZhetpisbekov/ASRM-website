@@ -12,6 +12,7 @@
     "bootstrap": "^5.1.0",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
+    "vue-concise-slider": "^4.2.5",
     "vue-cookies": "^1.8.1",
     "vue-i18n": "^8.27.2",
     "vue-pdf-embed": "^1.1.4",
@@ -27,7 +28,6 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "vue-concise-slider": "^4.2.5",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
