@@ -56,7 +56,7 @@ export default {
   methods: {
     goToArticle() {
       if (this.ind != null) {
-        this.$router.push({name: 'EventArticle', params: {category: this.type, article: this.ind}});
+        this.$router.push({name: 'EventArticle', params: {category: this.type, article: this.articleId}});
       }
       else {
         this.$router.push(`/news/${this.articleId}`);

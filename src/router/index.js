@@ -8,6 +8,7 @@ import EventArticlePage from "../components/views/EventArticlePage";
 import EventsPage from "../components/views/EventsPage.vue";
 import LoginPage from "../components/views/LoginPage.vue";
 import RegistrationPage from "../components/views/RegistrationPage";
+import ActivationPage from "../components/views/ActivationPage";
 import AccountPage from "../components/views/AccountPage";
 
 Vue.use(VueRouter);
@@ -39,6 +40,12 @@ const routes = [
     path: "/register",
     name: "Registration",
     component: RegistrationPage,
+    props: true,
+  },
+  {
+    path: "/activation/:uid/:token",
+    name: "Activation",
+    component: ActivationPage,
     props: true,
   },
   {

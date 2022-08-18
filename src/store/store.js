@@ -15,6 +15,7 @@ export default new Vuex.Store({
       ? localStorage.getItem("currentLanguage")
       : "ru",
     news: [],
+    l:"",
     article: [],
     group: [],
     categoryDetails: [],
@@ -121,7 +122,7 @@ export default new Vuex.Store({
     },
     SET_IS_PREMIUM(state, isPremiumUser) {
       state.isPremiumUser = isPremiumUser;
-    }
+    },
   },
   actions: {
     async getAboutUs({ commit, state }) {
@@ -221,6 +222,21 @@ export default new Vuex.Store({
         .catch(function(error) {
           console.log(error);
         });
+    },
+    async userActivate({state}, activation) {
+      console.log(activation);
+      let bodyFormData = new FormData();
+      bodyFormData.append("uid", activation.uid);
+      bodyFormData.append("token", activation.token);
+      console.log(bodyFormData);
+      await api
+        .post("/auth/users/activation/", bodyFormData)
+        .then(() => {
+          state.l = "mal";
+          console.log('good job!');
+          router.push("/login");
+        })
+        .catch((error) => console.log(error));
     },
     userLogOut() {
       localStorage.removeItem("token");

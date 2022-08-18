@@ -33,11 +33,11 @@ export default {
     apiUrl() {
       return `${api.defaults.baseURL}`;
     },
-    ind() {
+    articleId() {
       return this.$route.params.article;
     },
     article() {
-      return this.$store.state.categoryDetails[this.ind];
+      return this.$store.state.categoryDetails.find((elem) => elem.id == this.$route.params.article);
     }
   },
   mounted() {

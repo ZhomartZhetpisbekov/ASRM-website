@@ -180,7 +180,7 @@ export default {
     submitHandler(e) {
       e.preventDefault();
       console.log("submitted")
-      // this.$store.dispatch("a/getRegistration");
+      this.$store.dispatch("a/getRegistration");
     },
   },
 };

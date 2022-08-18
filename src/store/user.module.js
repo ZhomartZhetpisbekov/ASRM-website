@@ -13,10 +13,11 @@ export const userStore = {
     email: "",
     passwordConfirmed: "",
     first_name: "",
-    middle_name: "",
+    // fatherland: "",
     last_name: "",
     date_of_Birth: "",
     profession: "",
+    // diploma: null,
     phone: "",
     address: "",
     city: "",
@@ -80,7 +81,9 @@ export const userStore = {
       bodyFormData.append("email", state.email);
       bodyFormData.append("first_name", state.first_name);
       bodyFormData.append("last_name", state.last_name);
+      // bodyFormData.append("fatherland", state.fatherland);
       bodyFormData.append("profession", state.profession);
+      // bodyFormData.append("diploma", state.diploma);
       bodyFormData.append("date_of_Birth", state.date_of_Birth);
       bodyFormData.append("phone", state.phone);
       bodyFormData.append("address", state.address);
@@ -96,8 +99,8 @@ export const userStore = {
           router.push('/login')
         })
         .catch((error) => {
-          console.log(error.data);
-          console.log(error.username);
+          // console.log(error.data);
+          // console.log(error.username);
           console.log(error);
         });
     },
