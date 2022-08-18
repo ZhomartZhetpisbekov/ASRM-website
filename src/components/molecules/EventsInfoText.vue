@@ -1,5 +1,5 @@
 <template>
-  <div v-if="category" class="info-text">
+  <div v-if="category.length > 0" class="info-text">
     <h1 class="info-text_title">{{ category[0].group }}</h1>
     <SingleNews
       v-for="(item, index) in category.slice(0, newsCount)"
@@ -23,7 +23,7 @@ import api from "../../services/api";
 import SingleNews from "./SingleNews.vue";
 
 export default {
-  name: "InfoText",
+  name: "EventsInfoText",
   components: { SingleNews },
   props: {
     category: {

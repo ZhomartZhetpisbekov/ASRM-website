@@ -1,19 +1,23 @@
 <template>
   <div class="home-page">
-    <AboutUsBanner />
+    <!-- <AboutUsBanner /> -->
+    <!-- <LeadEventBanner /> -->
+    <SliderBanner />
     <UpcommingEvents />
     <BecomeMember />
   </div>
 </template>
 
 <script>
-import AboutUsBanner from "../molecules/AboutUsBanner.vue";
+// import AboutUsBanner from "../molecules/AboutUsBanner.vue";
 import UpcommingEvents from "../molecules/UpcommingEvents.vue";
 import BecomeMember from "../molecules/BecomeMember.vue";
+import SliderBanner from "../UI/SliderBanner.vue";
+// import LeadEventBanner from "../molecules/LeadEventBanner.vue";
 
 export default {
   name: "HomePage",
-  components: { AboutUsBanner, UpcommingEvents, BecomeMember },
+  components: { UpcommingEvents, BecomeMember, SliderBanner },
 };
 </script>
 
