@@ -138,12 +138,12 @@ export default new Vuex.Store({
           commit("SET_MEMBERSHIP", res.data);
         });
     },
-    async getLeadEvent({commit, state}) {
+    async getLeadEvent({ commit, state }) {
       return await api
         .get(`/api/v1/${state.currentLanguage}/index/lead-event`)
         .then((res) => {
           commit("SET_LEAD_EVENT", res.data);
-        })
+        });
     },
     async getNews({ commit, state }) {
       return await api

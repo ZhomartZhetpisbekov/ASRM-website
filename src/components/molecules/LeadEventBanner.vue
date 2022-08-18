@@ -2,14 +2,15 @@
   <div v-if="leadEvent" class="about-us-banner">
     <div class="content-container">
       <h2>{{ leadEvent.title }}</h2>
-      <p>{{ leadEvent.text }}</p>
+      <!-- <p>{{ leadEvent.text }}</p> -->
+      <div v-html="leadEvent.text"></div>
       <div class="buttons-container">
         <a v-for="(item, index) in leadEvent.urls"
           :key="index"
           :href="item.url"
-        >{{ item[`${this.$store.state.currentLanguage}_text`] }}</a>
-        <a>{{ leadEvent.link }}</a>
-        <a>Join</a>
+        >{{ item.ru_text }}</a>
+        <!-- <a>{{ leadEvent[0].link }}</a>
+        <a>Join</a> -->
       </div>
     </div>
   </div>
@@ -18,6 +19,9 @@
 <script>
 export default {
   name: "LeadEventBanner",
+  props: {
+    leadEvent: Object,
+  }
   // data() {
   //   return {
   //     leadEvent: {
@@ -29,21 +33,22 @@ export default {
   //     },
   //   };
   // },
-  computed: {
-    leadEvent() {
-      return this.$store.state.leadEvent[0];
-    },
-  },
-  mounted() {
-    this.fetchIndex();
-  },
-  methods: {
-    async fetchIndex() {
-      this.loading = true;
-      await this.$store.dispatch("getLeadEvent");
-      this.loading = false;
-    },
-  }
+  // computed: {
+  //   leadEvent() {
+  //     return this.$store.state.leadEvent[0];
+  //   },
+  // },
+  // created() {
+  //   this.fetchIndex();
+  //   console.log(this.leadEvent);
+  // },
+  // methods: {
+  //   async fetchIndex() {
+  //     this.loading = true;
+  //     await this.$store.dispatch("getLeadEvent");
+  //     this.loading = false;
+  //   },
+  // }
 };
 </script>
 

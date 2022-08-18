@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: `https://asrm-admin.ml`,
+  baseURL: `https://asrm-admin.herokuapp.com`,
 });
 
 api.interceptors.request.use(

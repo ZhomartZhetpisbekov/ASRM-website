@@ -1,6 +1,6 @@
 <template>
   <div v-if="category.length > 0" class="info-text">
-    <h1 class="info-text_title">{{ category[0].group }}</h1>
+    <h1 class="info-text_title">{{ category[0].type }}</h1>
     <SingleNews
       v-for="(item, index) in category.slice(0, newsCount)"
       :key="index"
@@ -10,7 +10,7 @@
       :text="item.text"
       :date="item.date"
       :ind="index"
-      :group="item.group"
+      :type="item.type"
     />
 
     <div class="more-news-btn">

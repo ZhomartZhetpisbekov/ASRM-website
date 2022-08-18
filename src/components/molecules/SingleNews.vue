@@ -39,7 +39,7 @@ export default {
     ind: {
       type: Number,
     },
-    group: {
+    type: {
       type: String,
     }
   },
@@ -56,7 +56,7 @@ export default {
   methods: {
     goToArticle() {
       if (this.ind != null) {
-        this.$router.push({name: 'EventArticle', params: {category: this.group, article: this.ind}});
+        this.$router.push({name: 'EventArticle', params: {category: this.type, article: this.ind}});
       }
       else {
         this.$router.push(`/news/${this.articleId}`);
