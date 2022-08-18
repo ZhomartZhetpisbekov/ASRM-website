@@ -75,13 +75,13 @@ export default {
 }
 
 .swiper-container-horizontal > * > .slider-pagination-bullet {
-  background: #fff none repeat scroll 0 0;
-  opacity: 1;
-  width: 0.7rem;
-  height: 0.7rem;
+  background: #fff none repeat scroll 0 0 !important;
+  opacity: 1 !important;
+  width: 0.7rem !important;
+  height: 0.7rem !important;
 }
 .swiper-container-vertical .slider-pagination-bullet-active,
 .swiper-container-horizontal .slider-pagination-bullet-active {
-  background: var(--main-text-color) none repeat scroll 0 0;
+  background: var(--main-text-color) none repeat scroll 0 0 !important;
 }
 </style>

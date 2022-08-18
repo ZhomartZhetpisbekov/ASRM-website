@@ -14,12 +14,12 @@
     <div class="mobile-dropdown__info">
       <ul class="mobile-dropdown__sections">
         <MobileMenuItem
-          v-for="(item, ind) in headerLinks"
+          v-for="(item, ind) in $t('header.navBottom')"
           :key="ind"
           :currentSection="ind == current"
-          :sectionName="item.name"
+          :sectionName="item"
           :styling="'left'"
-          :pagePath="item.path"
+          :pagePath="headerLinks[ind].path"
           :id="ind"
           @changeCurrentSection="(payload) => clickHandler(payload)"
         />
