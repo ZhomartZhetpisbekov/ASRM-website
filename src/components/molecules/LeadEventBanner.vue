@@ -8,7 +8,7 @@
         <a v-for="(item, index) in leadEvent.urls"
           :key="index"
           :href="item.url"
-        >{{ item.ru_text }}</a>
+        >{{ item.text }}</a>
         <!-- <a>{{ leadEvent[0].link }}</a>
         <a>Join</a> -->
       </div>
@@ -22,33 +22,6 @@ export default {
   props: {
     leadEvent: Object,
   }
-  // data() {
-  //   return {
-  //     leadEvent: {
-  //       title:
-  //         "Lorem ipsum dollar sit amet qok malagen yokitorai dolarp lease contarat",
-  //       text: "Lorem ipsum dollar sit ame malagen yokitorai dolarp lease contarat qok malagen yokitorai dolarp lease contarat",
-  //       link: "Information",
-  //       img: "../../assets/HomePage/event-banner.jpg",
-  //     },
-  //   };
-  // },
-  // computed: {
-  //   leadEvent() {
-  //     return this.$store.state.leadEvent[0];
-  //   },
-  // },
-  // created() {
-  //   this.fetchIndex();
-  //   console.log(this.leadEvent);
-  // },
-  // methods: {
-  //   async fetchIndex() {
-  //     this.loading = true;
-  //     await this.$store.dispatch("getLeadEvent");
-  //     this.loading = false;
-  //   },
-  // }
 };
 </script>
 
@@ -56,7 +29,7 @@ export default {
 .about-us-banner {
   width: 100%;
   height: 500px;
-  margin-bottom: 70px;
+  /* margin-bottom: 70px; */
   background-image: url(../../assets/HomePage/event-banner.jpg);
   background-position: center center;
   background-size: cover;

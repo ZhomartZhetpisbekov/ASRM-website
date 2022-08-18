@@ -48,7 +48,7 @@ export default {
 .about-us-banner {
   width: 100%;
   height: 500px;
-  margin-bottom: 70px;
+  /* margin-bottom: 70px; */
   background-image: url(../../assets/HomePage/banner-img.png);
   background-position: center center;
   background-size: cover;
