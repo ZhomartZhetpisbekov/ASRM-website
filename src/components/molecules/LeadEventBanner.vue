@@ -1,9 +1,13 @@
 <template>
-  <div class="about-us-banner">
+  <div v-if="leadEvent" class="about-us-banner">
     <div class="content-container">
       <h2>{{ leadEvent.title }}</h2>
       <p>{{ leadEvent.text }}</p>
       <div class="buttons-container">
+        <a v-for="(item, index) in leadEvent.urls"
+          :key="index"
+          :href="item.url"
+        >{{ item[`${this.$store.state.currentLanguage}_text`] }}</a>
         <a>{{ leadEvent.link }}</a>
         <a>Join</a>
       </div>
@@ -14,17 +18,32 @@
 <script>
 export default {
   name: "LeadEventBanner",
-  data() {
-    return {
-      leadEvent: {
-        title:
-          "Lorem ipsum dollar sit amet qok malagen yokitorai dolarp lease contarat",
-        text: "Lorem ipsum dollar sit ame malagen yokitorai dolarp lease contarat qok malagen yokitorai dolarp lease contarat",
-        link: "Information",
-        img: "../../assets/HomePage/event-banner.jpg",
-      },
-    };
+  // data() {
+  //   return {
+  //     leadEvent: {
+  //       title:
+  //         "Lorem ipsum dollar sit amet qok malagen yokitorai dolarp lease contarat",
+  //       text: "Lorem ipsum dollar sit ame malagen yokitorai dolarp lease contarat qok malagen yokitorai dolarp lease contarat",
+  //       link: "Information",
+  //       img: "../../assets/HomePage/event-banner.jpg",
+  //     },
+  //   };
+  // },
+  computed: {
+    leadEvent() {
+      return this.$store.state.leadEvent[0];
+    },
   },
+  mounted() {
+    this.fetchIndex();
+  },
+  methods: {
+    async fetchIndex() {
+      this.loading = true;
+      await this.$store.dispatch("getLeadEvent");
+      this.loading = false;
+    },
+  }
 };
 </script>
 

@@ -39,6 +39,9 @@ export default {
     ind: {
       type: Number,
     },
+    group: {
+      type: String,
+    }
   },
   computed: {
     shortText() {
@@ -46,14 +49,14 @@ export default {
         .parseFromString(this.text, "text/html")
         .querySelector("p").textContent;
     },
-    category() {
-      return this.$router.currentRoute.params.category;
-    }
+    // category() {
+    //   return this.$router.currentRoute.params.category;
+    // }
   },
   methods: {
     goToArticle() {
       if (this.ind != null) {
-        this.$router.push({name: 'EventArticle', params: {category: this.category, article: this.ind}});
+        this.$router.push({name: 'EventArticle', params: {category: this.group, article: this.ind}});
       }
       else {
         this.$router.push(`/news/${this.articleId}`);

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: `http://13.50.48.201`,
+  baseURL: `https://asrm-admin.ml`,
 });
 
 api.interceptors.request.use(

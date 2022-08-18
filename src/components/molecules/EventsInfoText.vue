@@ -10,6 +10,7 @@
       :text="item.text"
       :date="item.date"
       :ind="index"
+      :group="item.group"
     />
 
     <div class="more-news-btn">

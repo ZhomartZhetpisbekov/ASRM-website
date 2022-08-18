@@ -21,6 +21,7 @@ export default new Vuex.Store({
     searchResults: [],
     aboutUs: [],
     membership: [],
+    leadEvent: [],
     userInfo: {},
     isPremiumUser: false,
     menu: {
@@ -84,6 +85,9 @@ export default new Vuex.Store({
     SET_MEMBERSHIP(state, membership) {
       state.membership = membership;
     },
+    SET_LEAD_EVENT(state, leadEvent) {
+      state.leadEvent = leadEvent;
+    },
     SET_NEWS(state, news) {
       state.news = news;
     },
@@ -133,6 +137,13 @@ export default new Vuex.Store({
         .then((res) => {
           commit("SET_MEMBERSHIP", res.data);
         });
+    },
+    async getLeadEvent({commit, state}) {
+      return await api
+        .get(`/api/v1/${state.currentLanguage}/index/lead-event`)
+        .then((res) => {
+          commit("SET_LEAD_EVENT", res.data);
+        })
     },
     async getNews({ commit, state }) {
       return await api
