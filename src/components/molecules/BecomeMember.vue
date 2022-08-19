@@ -47,11 +47,12 @@ export default {
 <style scoped>
 /* Become Member */
 .become-member {
-  width: 83.5%;
-  margin: auto;
+  /* width: 83.5%; */
+  margin: 0 8rem;
+  /* margin: auto; */
   display: flex;
   color: #000;
-  margin-bottom: 80px;
+  margin-bottom: 5rem;
   border: 1px solid #f38023;
 }
 
@@ -63,18 +64,18 @@ export default {
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
-  padding: 50px;
+  padding: 4rem;
 }
 
 .text-content {
   display: flex;
   flex-direction: column;
-  padding: 20px 0;
-  gap: 30px;
+  padding: 2rem 0;
+  gap: 2rem;
 }
 
 h2 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: #f38023;
 }
 
@@ -83,7 +84,7 @@ p {
 }
 
 a {
-  padding: 15px 40px;
+  padding: 1rem 2.25rem;
   background: #00acb1;
   color: #fff;
   border-radius: 30px;
@@ -103,11 +104,28 @@ a:hover {
   background-size: cover;
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 65rem) {
+  .become-member {
+    /* width: 100%; */
+    /* border: 0; */
+    margin: 0 2rem 5rem;
+    /* flex-direction: column; */
+  }
+  .content-container {
+    padding: 2rem;
+  }
+}
+
+@media only screen and (max-width: 40rem) {
   .become-member {
     width: 100%;
     border: 0;
+    margin: 0;
+    margin-bottom: 5rem;
     flex-direction: column;
+  }
+  h2 {
+    font-size: 1.5rem;
   }
 
   .content-container {

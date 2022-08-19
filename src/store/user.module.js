@@ -24,8 +24,14 @@ export const userStore = {
     country: "",
     place_of_work: "",
     job: "",
+    regError: false,
+    errorMsg: "Username or Mail already in use",
   },
-  getters: {},
+  getters: {
+    get_error(state) {
+      return state.regError;
+    },
+  },
   mutations: {
     SET_USERNAME(state, username) {
       state.username = username;
@@ -35,6 +41,9 @@ export const userStore = {
     },
     SET_PASSWORD(state, payload) {
       state.password = payload;
+    },
+    SET_CONFIRMED_PASSWORD(state, payload) {
+      state.passwordConfirmed = payload;
     },
     SET_FNAME(state, payload) {
       state.first_name = payload;
@@ -75,6 +84,11 @@ export const userStore = {
   },
   actions: {
     async getRegistration({ state }) {
+      if (state.password !== state.passwordConfirmed) {
+        state.regError = true;
+        state.errorMsg = "Passwords don't match";
+        return;
+      }
       let bodyFormData = new FormData();
       bodyFormData.append("username", state.username);
       bodyFormData.append("password", state.password);
@@ -95,11 +109,14 @@ export const userStore = {
         .post("/auth/users/", bodyFormData)
         .then((response) => {
           console.log(response);
-          alert("check email pussy!");
+          state.regError = false;
+          alert("Подтвердите почту!");
           // commit("a/REGISTER", response.data);
-          router.push('/login')
+          router.push("/login");
         })
         .catch((error) => {
+          state.regError = true;
+          state.errorMsg = "Username or Mail are already in use!";
           // console.log(error.data);
           // console.log(error.username);
           console.log(error);

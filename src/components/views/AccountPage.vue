@@ -10,7 +10,7 @@
       <div class="main-edit">
         <a @click="editInfo" :class="{ activeLink: isEditting }">{{ $t('accountPage.editInfo') }}</a>
       </div>
-      <div class="user-info-container" v-if="isOnSettings" style="border: 1px solid green">
+      <div class="user-info-container" v-if="isOnSettings" >
         <form @submit="submitHandler">
           <AccountForm
             v-for="(item, index) in formSections"
@@ -22,7 +22,7 @@
           <input v-if="isEditting" type="submit" value="Save" class="submit-btn">
         </form>
       </div>
-      <div class="user-info-container" v-if="!isOnSettings" style="border: 1px solid green">
+      <div class="user-info-container" v-if="!isOnSettings" >
 
       </div>
       <div class="user-actions-container">

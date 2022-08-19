@@ -2,7 +2,7 @@
   <div class="about-us-banner">
     <div v-if="aboutUs" class="content-container">
       <!-- <h2>{{ $t("aboutUs.title") }}</h2> -->
-      <h2>{{ aboutUs.title }}</h2>
+      <h2 class="about-us_title">{{ aboutUs.title }}</h2>
       <!-- <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lobortis
         rhoncus hendrerit. Quisque mattis ante sit amet dictum finibus.
@@ -37,8 +37,8 @@ export default {
     //   this.loading = false;
     // },
     goToSociety() {
-      this.$router.push('society');
-    }
+      this.$router.push("society");
+    },
   },
 };
 </script>
@@ -65,8 +65,8 @@ export default {
   color: #fff;
 }
 
-h2 {
-  font-size: 32px;
+.about-us_title {
+  font-size: 2rem;
 }
 
 p {
@@ -86,7 +86,7 @@ a {
   margin-right: 10px;
   background: var(--main-text-color);
   color: var(--bg-color);
-  font-family: 'Gotham Pro Med';
+  font-family: "Gotham Pro Med";
   transition: all ease 0.3s;
 }
 
@@ -103,6 +103,12 @@ a:hover {
 }
 
 @media only screen and (max-width: 720px) {
+  .about-us_title {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
   .content-container {
     margin: auto;
     width: 100%;

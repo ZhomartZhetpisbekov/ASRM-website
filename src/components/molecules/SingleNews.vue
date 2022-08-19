@@ -41,7 +41,7 @@ export default {
     },
     type: {
       type: String,
-    }
+    },
   },
   computed: {
     shortText() {
@@ -56,9 +56,11 @@ export default {
   methods: {
     goToArticle() {
       if (this.ind != null) {
-        this.$router.push({name: 'EventArticle', params: {category: this.type, article: this.articleId}});
-      }
-      else {
+        this.$router.push({
+          name: "EventArticle",
+          params: { category: this.type, article: this.articleId },
+        });
+      } else {
         this.$router.push(`/news/${this.articleId}`);
       }
     },
@@ -69,7 +71,7 @@ export default {
 <style scoped>
 /* Single News */
 h3 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: #005963;
   line-height: 30px;
 }
@@ -100,11 +102,12 @@ span {
 
 .text-block {
   width: 65%;
-  padding: 0.5rem 0 0.5rem 1.5rem;
+  padding-left: 2rem;
+  /* padding: 0.5rem 0 0.5rem 1.5rem; */
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  justify-content: space-around;
+  justify-content: center;
   cursor: pointer;
 }
 
@@ -115,26 +118,53 @@ span {
 } */
 
 @media screen and (max-width: 40rem) {
-  /* .single-news-block {
-    padding: 0 1rem;
-  } */
+  .single-news-container {
+    /* padding: 0 1rem 0 2rem; */
+    /* margin: 0 1rem 0 2rem; */
+    display: flex;
+    gap: 0.75rem;
+  }
   h3 {
     font-size: 1rem;
   }
+  span {
+    font-size: 0.75rem;
+  }
+  .img-container {
+    /* margin-left: 2rem; */
+    position: relative;
+    /* width: 10rem; */
+  }
   .img-container img {
-    height: 7rem;
+    width: 6rem;
+    height: 4rem;
   }
   .text-block {
+    height: 4rem;
+    width: 100%;
     padding: 0;
-    padding-left: 1.5rem;
+    line-height: 1.125rem;
+    /* padding-left: 1.5rem; */
     justify-content: flex-start;
   }
+  .text-block h3 {
+    height: 4rem;
+    /* width: auto; */
+    padding: 0;
+    line-height: 1.125rem;
+    /* padding-left: 1.5rem; */
+    justify-content: flex-start;
+  }
+
   .text-block p,
   span {
     display: none;
   }
   .img-container .mobile-view-date {
     display: block;
+    position: absolute;
+    /* top: 0; */
+    width: 10rem;
   }
 }
 </style>

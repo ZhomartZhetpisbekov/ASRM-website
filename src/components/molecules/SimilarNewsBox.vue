@@ -3,7 +3,7 @@
     <p>
       {{ title }}
     </p>
-    <span>{{ date }}</span>
+    <span class="similar-news-date"> {{ date }}</span>
   </div>
 </template>
 
@@ -34,7 +34,7 @@ export default {
   .similar-news-box {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 0.5rem;
     cursor: pointer;
   }
 
@@ -42,8 +42,13 @@ export default {
     font-family: 'Gotham Pro Med';
   }
 
-  span {
+  .similar-news-date {
     font-size: 1rem;
     color: #70A2A7;
+  }
+  @media only screen and (max-width: 40rem) {
+    .similar-news-date {
+      font-size: 0.75rem;
+    }
   }
 </style>

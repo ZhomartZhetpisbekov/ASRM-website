@@ -5,7 +5,7 @@
         <img v-if="article.length > 0" :src="this.imgPath" alt="" />
         <div class="text-block">
           <h3>{{ article[0].title }}</h3>
-          <span>{{ article[0].date }}</span>
+          <span class="article-date">{{ article[0].date }}</span>
           <div class="parsed-html" v-html="article[0].text"></div>
           <div class="go-back-btn mobile">
             <a @click="goBack">
@@ -39,9 +39,6 @@
             :text="item.text"
             :date="item.date"
           />
-        </div>
-        <div class="more-news-btn">
-          <a @click="showMoreNews">Показать еще</a>
         </div>
       </div>
     </div>
@@ -117,9 +114,9 @@ export default {
     goBack() {
       this.$router.push("/news");
     },
-    showMoreNews() {
-      this.newsCount += 3;
-    },
+    // showMoreNews() {
+    //   this.newsCount += 3;
+    // },
   },
 };
 </script>
@@ -131,7 +128,7 @@ h3 {
   line-height: 2rem;
   color: #005963;
 }
-span {
+.article-date {
   color: #70a2a7;
 }
 
@@ -145,13 +142,14 @@ a {
   color: #000;
   font-family: "Gotham Pro";
   letter-spacing: 1.1px;
-  line-height: 23px;
+  line-height: 1.5rem;
   text-align: center;
 }
 
 .article-page-container {
   display: flex;
-  justify-content: space-between;
+  gap: 4rem;
+  /* justify-content: space-between; */
   text-align: left;
 }
 
@@ -215,6 +213,8 @@ a {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .parsed-html >>> img {
@@ -236,6 +236,16 @@ a {
   text-decoration: underline;
 }
 
+.parsed-html >>> * {
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.parsed-html >>> table {
+  table-layout: fixed;
+  margin-right: auto;
+}
+
 @media only screen and (max-width: 65rem) {
   .article-page {
     margin-top: 8rem;
@@ -248,6 +258,9 @@ a {
     padding: 0 2rem;
     font-size: 1.5rem;
     color: #f38023;
+  }
+  h3 {
+    font-size: 1.5rem;
   }
   .article-page {
     margin-top: 6rem;
@@ -265,6 +278,10 @@ a {
   .article-container {
     width: 100%;
   }
+
+  /* .article-date {
+    font-size: 0.75rem;
+  } */
 
   .similar-news-container {
     width: 100%;

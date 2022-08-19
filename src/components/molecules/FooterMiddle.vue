@@ -63,9 +63,9 @@ export default {
 <style scoped>
 /* Footer Middle */
 .grid-container {
-  display: grid;
-  /* column-gap: 50px; */
-  grid-template-columns: 20% 20% 20% 20% 20%;
+  display: flex;
+  gap: 2rem;
+  /* grid-template-columns: 20% 20% 20% 20% 20%; */
 }
 .media-items-box {
   width: 100%;
@@ -124,7 +124,10 @@ a:hover {
 
 @media only screen and (max-width: 60rem) {
   .grid-container {
-    grid-template-columns: 100%;
+    display: block;
+    gap: 0;
+    /* grid-template-columns: 100%; */
+    /* flex-direction: column; */
   }
 
   .media-items-box {

@@ -82,14 +82,14 @@ export default {
   color: #000;
   font-family: "Gotham Pro";
   letter-spacing: 1.1px;
-  line-height: 23px;
+  line-height: 1.5rem;
 }
 
 h2 {
   /* width: 83%; */
   padding: 0 8rem;
-  margin-bottom: 1rem;
-  font-size: 42px;
+  margin-bottom: 2rem;
+  font-size: 2rem;
   color: #005963;
 }
 

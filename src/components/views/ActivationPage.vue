@@ -1,8 +1,8 @@
 <template>
   <div class="activation-container">
-    <h2>Hello pussy</h2>
+    <!-- <h2>Hello pussy</h2>
     <p>Activate please, if you're not pussy</p>
-    <button @click="activateUser">Activate Me </button>
+    <button @click="activateUser">Activate Me </button> -->
   </div>
 </template>
 
@@ -23,7 +23,10 @@ export default {
       console.log(this.token);
       await this.$store.dispatch("userActivate", {uid: this.uid, token: this.token});
     }
-  }
+  },
+  mounted() {
+    this.activateUser();
+  },
 }
 </script>
 

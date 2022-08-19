@@ -23,6 +23,9 @@
         <registration-form :info="workInfo1" />
         <registration-form :info="workInfo2" />
       </div>
+      <p style="margin: 1rem 0; text-align:center; color: red" v-if="registrationError"
+        >{{errorText}}</p
+      >
       <div class="registration-page__buttons">
         <button type="s, required: trueubmit">
           {{ $t("loginPage.registration") }}
@@ -37,6 +40,15 @@ import RegistrationForm from "../molecules/RegistrationForm.vue";
 export default {
   components: { RegistrationForm },
   name: "RegistrationPage",
+  computed: {
+    registrationError() {
+      return this.$store.state.a.regError;
+      // return this.$store.getters("a/get_error");
+    },
+    errorText() {
+      return this.$store.state.a.errorMsg;
+    }
+  },
   data() {
     return {
       usernameRef: "",
@@ -74,7 +86,7 @@ export default {
           placeholder: "***********",
           type: "password",
           required: true,
-          committer: "SET_PASSWORD",
+          committer: "SET_CONFIRMED_PASSWORD",
         },
       ],
       personalInfo: [
@@ -179,7 +191,7 @@ export default {
   methods: {
     submitHandler(e) {
       e.preventDefault();
-      console.log("submitted")
+      console.log("submitted");
       this.$store.dispatch("a/getRegistration");
     },
   },
@@ -203,6 +215,10 @@ export default {
 }
 .account-information {
   margin-top: 1.5rem;
+}
+
+.work-information {
+  margin-bottom: 0.5rem;
 }
 
 /* .account-information > label,

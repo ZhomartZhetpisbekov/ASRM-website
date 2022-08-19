@@ -58,7 +58,7 @@ export default {
 
 <style>
 .information {
-  margin-top: 12em;
+  margin-top: 12.5rem;
   display: flex;
   width: 100%;
   padding: 0 8rem 4rem 8rem;

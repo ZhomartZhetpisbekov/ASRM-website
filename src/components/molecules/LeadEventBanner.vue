@@ -5,11 +5,13 @@
       <!-- <p>{{ leadEvent.text }}</p> -->
       <div v-html="leadEvent.text"></div>
       <div class="buttons-container">
-        <a v-for="(item, index) in leadEvent.urls"
+        <a
+          v-for="(item, index) in leadEvent.urls"
           :key="index"
           :href="item.url"
           @click="goLink"
-        >{{ item.text }}</a>
+          >{{ item.text }}</a
+        >
         <!-- <a>{{ leadEvent[0].link }}</a>
         <a>Join</a> -->
       </div>
@@ -24,8 +26,8 @@ export default {
     leadEvent: Object,
   },
   methods: {
-    
-  }
+    goLink() {},
+  },
 };
 </script>
 
@@ -51,7 +53,7 @@ export default {
 }
 
 h2 {
-  font-size: 32px;
+  font-size: 2rem;
 }
 
 p {
@@ -87,7 +89,10 @@ a:hover {
   }
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 40rem) {
+  .about-us-banner h2 {
+    font-size: 1.5rem;
+  }
   .content-container {
     margin: auto;
     width: 100%;

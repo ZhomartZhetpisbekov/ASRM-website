@@ -6,11 +6,8 @@
         ><img src="../../assets/HomePage/left.png" alt=""
       /></a>
       <div class="scrollable-container">
-        <slider
-          ref="slider"
-          :options="options"
-        >
-          <slideritem 
+        <slider ref="slider" :options="options">
+          <slideritem
             v-for="(item, index) in events"
             :key="index"
             class="custom-slider-item"
@@ -53,7 +50,7 @@ export default {
   computed: {
     events() {
       return this.$store.state.group;
-    }
+    },
   },
   mounted() {
     this.fetchGroup();
@@ -68,7 +65,7 @@ export default {
     async fetchGroup() {
       // this.group = this.$router.currentRoute.params.name;
       this.loading = true;
-      await this.$store.dispatch("getGroup", 'events');
+      await this.$store.dispatch("getGroup", "events");
       this.loading = false;
     },
   },
@@ -83,41 +80,72 @@ export default {
 <style scoped>
 /* Upcomming Events */
 .upcomming-events-container {
+  padding: 0 8rem;
   width: 100%;
-  margin-bottom: 70px;
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .events-container {
   display: flex;
   justify-content: center;
+  position: relative;
+  height: 25rem;
+  width: 100%;
 }
 
-a {
-  margin-top: 115px;
+a:first-child {
+  /* margin-top: 115px; */
+  position: absolute;
+  left: -2rem;
+  top: 50%;
+  bottom: 50%;
+}
+
+a:last-child {
+  position: absolute;
+  right: -2rem;
+  top: 50%;
+  bottom: 50%;
 }
 
 a img {
-  width: 30px;
+  width: 1.5rem;
 }
 
-.scrollable-container {
+/* .scrollable-container {
   width: 86%;
-}
+} */
 
 h2 {
-  padding: 0 8rem;
-  margin-bottom: 25px;
+  width: 100%;
+  text-align: left;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
   color: #f38023;
 }
 
 .custom-slider-item {
-  width: 33%;
+  width: 34%;
 }
 
 @media only screen and (max-width: 65rem) {
-  h2 {
-    padding: 0;
-    width: 83%;
-    margin: 0 auto 25px;
+  .custom-slider-item {
+    width: 52%;
+  }
+  .upcomming-events-container {
+    padding: 0 3rem 0 2rem;
+  }
+  a:first-child {
+    left: -1.5rem;
+  }
+
+  a:last-child {
+    right: -1.5rem;
+  }
+  .scrollable-container {
+    width: 95%;
   }
 }
 
@@ -128,8 +156,27 @@ h2 {
 } */
 
 @media only screen and (max-width: 40rem) {
+  .scrollable-container {
+    width: 30rem;
+  }
   .custom-slider-item {
-    width: 100%;
+    width: 30rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  .upcomming-events-container {
+    padding: 0 2.5rem 0 2rem;
+  }
+}
+@media only screen and (max-width: 30rem) {
+  .scrollable-container {
+    width: 17.5rem;
+    /* height: 30rem; */
+  }
+  .custom-slider-item {
+    width: 17.5rem;
+    /* height: 30rem; */
   }
 }
 </style>

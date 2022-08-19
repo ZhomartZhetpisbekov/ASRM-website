@@ -9,7 +9,7 @@
       <p>
         {{ shortText.slice(0, 250) + ".." }}
       </p>
-      <span>{{ date }}</span>
+      <span class="single-news-date">{{ date }}</span>
     </div>
     <!-- </a> -->
   </div>
@@ -57,12 +57,12 @@ export default {
 <style scoped>
 /* Single News */
 h3 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: #005963;
   line-height: 30px;
 }
 
-span {
+.single-news-date {
   color: #70a2a7;
 }
 .single-news-block {
@@ -84,10 +84,12 @@ span {
 
 .text-block {
   width: 45%;
-  padding: 0.5rem 0 0.5rem 1.5rem;
+  padding-left: 2rem;
+  /* padding: 0.5rem 0 0.5rem 1.5rem; */
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 2rem;
   cursor: pointer;
 }
 
@@ -104,16 +106,21 @@ span {
     flex-direction: column;
     gap: 0.5rem;
   }
+  h3{
+    font-size: 1.5rem;
+  }
+  .single-news-date {
+    font-size: 00.75rem;
+  }
 
   .img-container {
     width: 100%;
   }
 
   .text-block {
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 0;
     width: 100%;
     gap: 1rem;
   }
 }
-
 </style>

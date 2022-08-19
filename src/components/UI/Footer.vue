@@ -25,11 +25,12 @@ export default {
   color: #005963;
   width: 100%;
   justify-content: space-between;
-  padding: 25px 7.375rem 60px;
+  padding: 2rem 8rem 4.5rem;
 }
 
 .footer-title {
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
+  color: var(--main-text-color);
 }
 
 h2 {

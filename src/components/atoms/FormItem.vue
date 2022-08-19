@@ -8,11 +8,11 @@
       autocomplete="off"
       :placeholder="inputPlaceholder"
       :type="inputType"
-      pattern="[+][7][(][0-9]{3}[)]-[0-9]{3}-[0-9]{4}"
+      
       :required="inputRequired"
       v-model="modelka"
       @input="committer"
-      :minlength="inputType == 'password' ? 8 : 1"
+      :minlength="11"
     />
     <input
       v-else
@@ -24,7 +24,7 @@
       @input="committer"
       :minlength="inputType == 'password' ? 8 : 1"
     />
-    <span class="validity"></span>
+    <!-- <span class="validity"></span> -->
   </div>
 </template>
 

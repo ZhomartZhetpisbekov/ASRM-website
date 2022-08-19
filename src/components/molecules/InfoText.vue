@@ -121,7 +121,7 @@ img {
 }
 
 .become-member h3 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: #f38023;
 }
 
