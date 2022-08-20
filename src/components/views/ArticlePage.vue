@@ -259,6 +259,9 @@ a {
     font-size: 1.5rem;
     color: #f38023;
   }
+  .similar-news-mobile {
+    padding: 0 1rem 0 2rem;
+  }
   h3 {
     font-size: 1.5rem;
   }

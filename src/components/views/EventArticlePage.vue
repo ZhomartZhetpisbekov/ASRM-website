@@ -13,7 +13,7 @@
     <div class="go-back-btn">
       <a class="goBack-btn" @click="goBack">
         <i class="fa-solid fa-arrow-left-long"></i>
-        Вернуться на страницу новостей
+        Вернуться на страницу мероприятий
       </a>
     </div>
   </div>

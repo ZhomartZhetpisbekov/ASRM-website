@@ -13,9 +13,9 @@
       :type="item.type"
     />
 
-    <!-- <div class="more-news-btn">
+    <div v-if="category.length < newsCount" class="more-news-btn">
       <a @click="showMoreNews">Показать еще</a>
-    </div> -->
+    </div>
   </div>
 </template>
 
