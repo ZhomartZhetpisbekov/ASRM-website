@@ -110,9 +110,8 @@ export const userStore = {
         .then((response) => {
           console.log(response);
           state.regError = false;
-          alert("Подтвердите почту!");
           // commit("a/REGISTER", response.data);
-          router.push("/login");
+          router.push("/activation");
         })
         .catch((error) => {
           state.regError = true;
