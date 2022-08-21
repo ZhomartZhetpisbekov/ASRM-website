@@ -49,7 +49,7 @@ export default {
         // deviation: "200",
         speed: 300, // Sliding speed
         loop: true, // Infinite loop
-        autoplay: 5000 // Auto play[ms]
+        autoplay: 5000, // Auto play[ms]
       },
     };
   },
@@ -64,8 +64,8 @@ export default {
       this.loading = false;
     },
     onTap() {
-      console.log('tap');
-    }
+      console.log("tap");
+    },
   },
 };
 </script>

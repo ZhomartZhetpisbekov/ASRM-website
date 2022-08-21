@@ -57,6 +57,38 @@ const messages = {
       password: "Пароль",
       remember: "Запомнить меня",
       forget: "Забыли пароль?",
+      newAcc: "Новый пользователь? Создайте аккаунт!",
+    },
+    registrationPage: {
+      regTitle: "Создать аккаунт",
+      accountInfo: {
+        title: "Информация об аккаунте",
+        username: "Имя пользователя",
+        email: "Почта",
+        password: "Пароль",
+        passwordConfirm: "Потвердите пароль",
+      },
+      personalInfo: {
+        title: "Личная информация",
+        fname: "Имя",
+        mname: "Отчество",
+        lname: "Фамилия",
+        dob: "Дата рождения",
+      },
+      address: {
+        title: "Адрес",
+        address1: "Адрес проживания 1",
+        address2: "Адрес проживания 2",
+        country: "Страна",
+        city: "Город",
+      },
+      workInfo: {
+        title: "Информация о работе",
+        occupation: "Профессия",
+        jobTitle: "Должность",
+        placeOfWork: "Место работы",
+        phone: "Номер телефона",
+      },
     },
     accountPage: {
       title: "Личный кабинет",
@@ -65,10 +97,8 @@ const messages = {
       editInfo: "Редактировать",
       deleteAccount: "Удалить аккаунт",
       signOut: "Выйти",
-      formDetails: [
-        {}
-      ]
-    }
+      formDetails: [{}],
+    },
   },
   kz: {
     header: {
@@ -123,6 +153,38 @@ const messages = {
       password: "Password",
       remember: "Remember me",
       forget: "Forgot password?",
+      newAcc: "New user? Create an account!",
+    },
+    registrationPage: {
+      regTitle: "Создать аккаунт",
+      accountInfo: {
+        title: "Информация об аккаунте",
+        username: "Имя пользователя",
+        email: "Почта",
+        password: "Пароль",
+        passwordConfirm: "Потвердите пароль",
+      },
+      personalInfo: {
+        title: "Личная информация",
+        fname: "Имя",
+        mname: "Отчество",
+        lname: "Фамилия",
+        dob: "Дата рождения",
+      },
+      address: {
+        title: "Адрес",
+        address1: "Адрес проживания 1",
+        address2: "Адрес проживания 2",
+        country: "Страна",
+        city: "Город",
+      },
+      workInfo: {
+        title: "Информация о работе",
+        occupation: "Профессия",
+        jobTitle: "Должность",
+        placeOfWork: "Место работы",
+        phone: "Номер телефона",
+      },
     },
     accountPage: {
       title: "Личный кабинет KZ",
@@ -130,11 +192,9 @@ const messages = {
       membership: "Членство",
       editInfo: "Редактировать",
       deleteAccount: "Удалить аккаунт",
-      signOut: "Выйти"
-    }
+      signOut: "Выйти",
+    },
   },
-
-
 
   en: {
     header: {
@@ -189,6 +249,38 @@ const messages = {
       password: "Password",
       remember: "Remember me",
       forget: "Forgot password?",
+      newAcc: "New user? Create an account!",
+    },
+    registrationPage: {
+      regTitle: "reate an account",
+      accountInfo: {
+        title: "Account information",
+        username: "Username",
+        email: "Email",
+        password: "Password",
+        passwordConfirm: "Confirm password",
+      },
+      personalInfo: {
+        title: "Personal information",
+        fname: "First name",
+        mname: "Middle name",
+        lname: "last name",
+        dob: "Date of birth",
+      },
+      address: {
+        title: "Address",
+        address1: "Street address line 1",
+        address2: "Street address line 2",
+        country: "Country",
+        city: "City",
+      },
+      workInfo: {
+        title: "Work information",
+        occupation: "Occupation",
+        jobTitle: "Job title",
+        placeOfWork: "Place of work",
+        phone: "Phone number",
+      },
     },
     accountPage: {
       title: "Account",
@@ -196,8 +288,8 @@ const messages = {
       membership: "Membership",
       editInfo: "Edit information",
       deleteAccount: "Delete account",
-      signOut: "Sign out"
-    }
+      signOut: "Sign out",
+    },
   },
 };
 

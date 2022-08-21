@@ -8,8 +8,7 @@
         <a
           v-for="(item, index) in leadEvent.urls"
           :key="index"
-          :href="item.url"
-          @click="goLink"
+          @mousedown="goLink(item.url)"
           >{{ item.text }}</a
         >
         <!-- <a>{{ leadEvent[0].link }}</a>
@@ -26,7 +25,9 @@ export default {
     leadEvent: Object,
   },
   methods: {
-    goLink() {},
+    goLink(url) {
+      window.open(`${url}`, "_blank");
+    },
   },
 };
 </script>

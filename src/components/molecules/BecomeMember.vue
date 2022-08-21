@@ -16,20 +16,20 @@
           aliquet varius.
         </p> -->
       </div>
-      <a href="#">{{ $t('becomeMember.readMoreBtn') }}</a>
+      <a href="/society/membership">{{ $t("becomeMember.readMoreBtn") }}</a>
     </div>
     <div class="image-container"></div>
   </div>
 </template>
 
-<script >
+<script>
 export default {
   name: "BecomeMember",
   props: {},
   computed: {
     index() {
       return this.$store.state.membership[0];
-    }
+    },
   },
   mounted() {
     this.fetchIndex();

@@ -9,8 +9,8 @@
       </p> -->
       <div v-html="aboutUs.text"></div>
       <div class="buttons-container">
-        <a href="#">{{ $t("aboutUs.joinBtn") }}</a>
-        <a @click="goToSociety">{{ $t("aboutUs.readMoreBtn") }}</a>
+        <a @mousedown="goToMembership">{{ $t("aboutUs.joinBtn") }}</a>
+        <a @mousedown="goToSociety">{{ $t("aboutUs.readMoreBtn") }}</a>
       </div>
     </div>
   </div>
@@ -37,8 +37,11 @@ export default {
     //   this.loading = false;
     // },
     goToSociety() {
-      console.log('pushing society');
+      // console.log("pushing society");
       this.$router.push("society");
+    },
+    goToMembership() {
+      this.$router.push("society/membership");
     },
   },
 };

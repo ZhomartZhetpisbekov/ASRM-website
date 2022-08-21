@@ -1,14 +1,13 @@
 <template>
   <div :class="inputClass">
     <label class="input_label" :class="{ 'required-field': inputRequired }">
-      {{ inputLabel }}
+      {{ $t(inputLabel) }}
     </label>
     <input
       v-if="inputType == 'tel'"
       autocomplete="off"
       :placeholder="inputPlaceholder"
       :type="inputType"
-      
       :required="inputRequired"
       v-model="modelka"
       @input="committer"

@@ -48,7 +48,7 @@
             }
           "
         >
-          New user? Create an account!
+          {{ $t("loginPage.newAcc") }}
         </p>
       </div>
     </form>

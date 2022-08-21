@@ -1,31 +1,42 @@
 <template>
   <section class="registration-page">
     <form @submit="submitHandler">
-      <h3>Create an account</h3>
+      <h3>{{ $t("registrationPage.regTitle") }}</h3>
 
       <div class="account-information">
-        <label class="registration-information">Account information</label>
+        <label class="registration-information">{{
+          $t("registrationPage.accountInfo.title")
+        }}</label>
         <registration-form :info="accountInfo" />
         <registration-form :info="accountInfo2" />
       </div>
       <div class="personal-information">
-        <label class="registration-information">Personal information</label>
+        <label class="registration-information">{{
+          $t("registrationPage.personalInfo.title")
+        }}</label>
         <registration-form :info="personalInfo" />
       </div>
       <div class="address-information">
-        <label class="registration-information">Address</label>
+        <label class="registration-information">{{
+          $t("registrationPage.address.title")
+        }}</label>
         <registration-form :info="address1" />
         <registration-form :info="address2" />
         <registration-form :info="address3" />
       </div>
       <div class="work-information">
-        <label class="registration-information">Work information</label>
+        <label class="registration-information">{{
+          $t("registrationPage.workInfo.title")
+        }}</label>
         <registration-form :info="workInfo1" />
         <registration-form :info="workInfo2" />
       </div>
-      <p style="margin: 1rem 0; text-align:center; color: red" v-if="registrationError"
-        >{{errorText}}</p
+      <p
+        style="margin: 1rem 0; text-align:center; color: red"
+        v-if="registrationError"
       >
+        {{ errorText }}
+      </p>
       <div class="registration-page__buttons">
         <button type="s, required: trueubmit">
           {{ $t("loginPage.registration") }}
@@ -47,7 +58,7 @@ export default {
     },
     errorText() {
       return this.$store.state.a.errorMsg;
-    }
+    },
   },
   data() {
     return {
@@ -59,14 +70,14 @@ export default {
       middleNameRef: "",
       accountInfo: [
         {
-          label: "Username",
+          label: "registrationPage.accountInfo.username",
           placeholder: "",
           type: "text",
           required: true,
           committer: "SET_USERNAME",
         },
         {
-          label: "Email",
+          label: "registrationPage.accountInfo.email",
           placeholder: "john@email.com",
           type: "email",
           required: true,
@@ -75,14 +86,14 @@ export default {
       ],
       accountInfo2: [
         {
-          label: "Password",
+          label: "registrationPage.accountInfo.password",
           placeholder: "min. 8 characters, not username",
           type: "password",
           required: true,
           committer: "SET_PASSWORD",
         },
         {
-          label: "Confirm password",
+          label: "registrationPage.accountInfo.passwordConfirm",
           placeholder: "***********",
           type: "password",
           required: true,
@@ -91,28 +102,28 @@ export default {
       ],
       personalInfo: [
         {
-          label: "First name",
+          label: "registrationPage.personalInfo.fname",
           placeholder: "",
           type: "text",
           required: true,
           committer: "SET_FNAME",
         },
         {
-          label: "Middle name",
+          label: "registrationPage.personalInfo.mname",
           placeholder: "",
           type: "text",
           required: false,
           committer: "SET_MNAME",
         },
         {
-          label: "Last name",
+          label: "registrationPage.personalInfo.lname",
           placeholder: "",
           type: "text",
           required: true,
           committer: "SET_LNAME",
         },
         {
-          label: "Date of birth",
+          label: "registrationPage.personalInfo.dob",
           placeholder: "dd/mm/yyyy",
           type: "date",
           required: true,
@@ -122,7 +133,7 @@ export default {
       ],
       address1: [
         {
-          label: "Street address line 1",
+          label: "registrationPage.address.address1",
           placeholder: "",
           type: "text",
           required: true,
@@ -131,7 +142,7 @@ export default {
       ],
       address2: [
         {
-          label: "Street address line 2",
+          label: "registrationPage.address.address2",
           placeholder: "",
           type: "text",
           required: false,
@@ -140,14 +151,14 @@ export default {
       ],
       address3: [
         {
-          label: "Country",
+          label: "registrationPage.address.country",
           placeholder: "",
           type: "text",
           required: true,
           committer: "SET_COUNTRY",
         },
         {
-          label: "City",
+          label: "registrationPage.address.city",
           placeholder: "",
           type: "text",
           required: true,
@@ -156,14 +167,14 @@ export default {
       ],
       workInfo1: [
         {
-          label: "Occupation",
+          label: "registrationPage.workInfo.occupation",
           placeholder: "",
           type: "text",
           required: true,
           committer: "SET_OCCUPATION",
         },
         {
-          label: "Job title",
+          label: "registrationPage.workInfo.jobTitle",
           placeholder: "",
           type: "text",
           required: true,
@@ -172,14 +183,14 @@ export default {
       ],
       workInfo2: [
         {
-          label: "Place of work",
+          label: "registrationPage.workInfo.placeOfWork",
           placeholder: "",
           type: "text",
           required: true,
           committer: "SET_PWORK",
         },
         {
-          label: "Phone number",
+          label: "registrationPage.workInfo.phone",
           placeholder: "+X (XXX) XXX - XXXX",
           type: "tel",
           required: true,
