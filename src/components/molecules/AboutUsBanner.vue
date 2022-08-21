@@ -37,6 +37,7 @@ export default {
     //   this.loading = false;
     // },
     goToSociety() {
+      console.log('pushing society');
       this.$router.push("society");
     },
   },

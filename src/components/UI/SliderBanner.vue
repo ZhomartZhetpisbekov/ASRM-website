@@ -1,6 +1,6 @@
 <template>
   <div class="slider-zhomart-container">
-    <slider ref="slider" :options="options">
+    <slider @tap="onTap()" ref="slider" :options="options">
       <slideritem :style="aboutUsStyles">
         <AboutUsBanner :aboutUs="aboutUsInfo" />
       </slideritem>
@@ -63,6 +63,9 @@ export default {
       await this.$store.dispatch("getLeadEvent");
       this.loading = false;
     },
+    onTap() {
+      console.log('tap');
+    }
   },
 };
 </script>

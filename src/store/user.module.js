@@ -13,11 +13,11 @@ export const userStore = {
     email: "",
     passwordConfirmed: "",
     first_name: "",
-    // fatherland: "",
+    middle_name: "",
     last_name: "",
     date_of_Birth: "",
     profession: "",
-    // diploma: null,
+    diploma: null,
     phone: "",
     address: "",
     city: "",
@@ -95,7 +95,7 @@ export const userStore = {
       bodyFormData.append("email", state.email);
       bodyFormData.append("first_name", state.first_name);
       bodyFormData.append("last_name", state.last_name);
-      // bodyFormData.append("fatherland", state.fatherland);
+      bodyFormData.append("fatherland", state.middle_name);
       bodyFormData.append("profession", state.profession);
       // bodyFormData.append("diploma", state.diploma);
       bodyFormData.append("date_of_Birth", state.date_of_Birth);
@@ -105,6 +105,7 @@ export const userStore = {
       bodyFormData.append("country", state.country);
       bodyFormData.append("place_of_work", state.place_of_work);
       bodyFormData.append("job", state.job);
+      console.log(bodyFormData);
       await api
         .post("/auth/users/", bodyFormData)
         .then((response) => {
@@ -121,6 +122,32 @@ export const userStore = {
           // console.log(error.username);
           console.log(error);
         });
+    },
+    async modifyUser({ state }) {
+      let bodyFormData = new FormData();
+      // bodyFormData.append("username", state.username);
+      bodyFormData.append("email", state.email);
+      bodyFormData.append("first_name", state.first_name);
+      bodyFormData.append("last_name", state.last_name);
+      bodyFormData.append("fatherland", state.middle_name);
+      bodyFormData.append("profession", state.profession);
+      bodyFormData.append("diploma", state.diploma);
+      bodyFormData.append("date_of_Birth", state.date_of_Birth);
+      bodyFormData.append("phone", state.phone);
+      bodyFormData.append("address", state.address);
+      bodyFormData.append("city", state.city);
+      bodyFormData.append("country", state.country);
+      bodyFormData.append("place_of_work", state.place_of_work);
+      bodyFormData.append("job", state.job);
+      for (var pair of bodyFormData.entries()) {
+        console.log(pair[0] + ", " + pair[1]);
+      }
+      await api
+        .put("auth/users/me", bodyFormData, {headers: {'Authorization': 'token ${localStorage.getItem("token")}'}})
+        .then(() => {
+          console.log("posted successfully");
+        })
+        .catch((error) => console.log(error));
     },
   },
 };

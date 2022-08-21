@@ -6,10 +6,10 @@
         v-for="(item, index) in sectionItems"
         :key="index"
         :inputLabel="item.label"
-        :inputValue="item.value"
         :inputType="item.type"
         :isReadOnly="isReadOnly"
         :inputName="item.name"
+        :inputCommitter="item.inputCommitter"
       />
     </div>
   </div>

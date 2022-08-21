@@ -2,20 +2,18 @@
   <div v-if="userValue || inputType == 'password' || inputName == 'middle_name'">
     <label class="input_label">{{ inputLabel }} </label>
     <input
-      v-if="inputType == 'tel'"
-      :value="userValue"
+      v-model="userValue"
       :type="inputType"
-      pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}"
       :readonly="isReadOnly"
       :class="{ activeInput: !isReadOnly }"
     />
-    <input
+    <!-- <input
       v-else
       :value="inputType == 'password' ? 'lolipendr' : userValue"
       :type="inputType"
       :readonly="isReadOnly"
       :class="{ activeInput: !isReadOnly }"
-    />
+    /> -->
   </div>
 </template>
 
@@ -26,7 +24,7 @@ export default {
     inputLabel: {
       type: String,
     },
-    inputValue: {
+    inputCommitter: {
       type: String,
     },
     inputType: {
@@ -37,14 +35,32 @@ export default {
     },
     inputName: String,
   },
+  data() {
+    return {
+      temp: '',
+    }
+  },
   mounted() {
     console.log(this.isReadOnly);
   },
   computed:{
-    userValue() {
-      return this.$store.state.userInfo[this.inputName];
-    }
-  }
+    userValue: {
+      get() {
+        return this.$store.state.userInfo[this.inputName];
+      },
+      set(value) {
+        this.$store.commit(`a/${this.inputCommitter}`, value);
+      }
+    },
+    // userValue() {
+    //   return this.$store.state.userInfo[this.inputName];
+    // }
+  },
+  // methods: {
+  //   committer() {
+  //     this.$store.commit(`a/${this.inputCommitter}`, this.userValue);
+  //   }
+  // }
 };
 </script>
 

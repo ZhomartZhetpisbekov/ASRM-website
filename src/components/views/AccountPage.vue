@@ -36,16 +36,13 @@
 
 <script>
 import AccountForm from "../molecules/AccountForm.vue";
-import i18n from "../../plugins/i18n";
+// import i18n from "../../plugins/i18n";
 
 export default {
   name: "AccountPage",
   components: { AccountForm },
   created() {
     this.fetchUserInfo();
-  },
-  mounted() {
-    console.log('messages: ', i18n.messages[this.$store.state.currentLanguage]);
   },
   methods: {
     async fetchUserInfo() {
@@ -56,7 +53,8 @@ export default {
     submitHandler(e) {
       e.preventDefault();
       this.isEditting = false;
-      console.log('computed messages:', this.messages.accountPage.title);
+      // console.log(this.$store)
+      this.$store.dispatch('a/modifyUser');
     },
     editInfo() {
       this.isEditting = true;
@@ -66,11 +64,6 @@ export default {
     },
     signOutHandler() {
       this.$store.dispatch("userLogOut");
-    }
-  },
-  computed: {
-    messages() {
-      return this.$i18n.messages[this.$store.state.currentLanguage].accountPage.title;
     }
   },
   data() {
@@ -83,27 +76,26 @@ export default {
           inputFields: [
             {
               label: "Username",
-              value: "renaidn",
               type: "text",
-              name: "username"
+              name: "username",
+              inputCommitter: 'SET_USERNAME',
             },
-            {
-              label: "Password",
-              value: "*******",
-              type: "password",
-              name: "password"
-            },
+            // {
+            //   label: "Password",
+            //   type: "password",
+            //   name: "password"
+            // },
             {
               label: "Email",
-              value: "johndoe@gmail.com",
               type: "email",
-              name: "email"
+              name: "email",
+              inputCommitter: 'SET_EMAIL',
             },
             {
               label: "Phone number",
-              value: "7777-333-4444",
               type: "tel",
-              name: "phone"
+              name: "phone",
+              inputCommitter: 'SET_PHONE',
             },
           ],
         },
@@ -112,28 +104,27 @@ export default {
           inputFields: [
             {
               label: "First name",
-              value: "Adina",
               type: "text",
-              name: "first_name"
+              name: "first_name",
+              inputCommitter: 'SET_FNAME',
             },
             {
               label: "Middle name",
-              value: "",
               type: "text",
-              name: "middle_name"
+              name: "middle_name",
+              inputCommitter: 'SET_MNAME',
             },
-
             {
               label: "Last name",
-              value: "Maratkyzy",
               type: "text",
-              name: "last_name"
+              name: "last_name",
+              inputCommitter: "SET_LNAME",
             },
             {
               label: "Date of birth",
-              value: "06/04/2002",
               type: "date",
-              name: "date_of_Birth"
+              name: "date_of_Birth",
+              inputCommitter: 'SET_BDATE',
             },
           ],
         },
@@ -142,28 +133,28 @@ export default {
           inputFields: [
             {
               label: "Street address line 1",
-              value: "Great street 58",
               type: "text",
-              name: "address"
+              name: "address",
+              inputCommitter: 'SET_ADDRESS1',
             },
             {
               label: "Street address line 2",
-              value: "",
               type: "text",
-              name: "address"
+              name: "address",
+              inputCommitter: 'SET_ADDRESS2',
             },
 
             {
               label: "Country",
-              value: "Kazakhstan",
               type: "text",
-              name: "country"
+              name: "country",
+              inputCommitter: 'SET_COUNTRY',
             },
             {
               label: "City",
-              value: "Nur-Sultan",
               type: "text",
-              name: "city"
+              name: "city",
+              inputCommitter: 'SET_CITY',
             },
           ],
         },
@@ -172,21 +163,21 @@ export default {
           inputFields: [
             {
               label: "Occupation",
-              value: "Profession",
               type: "text",
-              name: "profession"
+              name: "profession",
+              inputCommitter: 'SET_OCCUPATION',
             },
             {
               label: "Job title",
-              value: "Masters of profession",
               type: "text",
-              name: "job"
+              name: "job",
+              inputCommitter: 'SET_JOB',
             },
             {
               label: "Place of work",
-              value: "National Bank of Professions (NPB)",
               type: "text",
-              name: "place_of_work"
+              name: "place_of_work",
+              inputCommitter: 'SET_PWORK',
             },
           ],
         },
