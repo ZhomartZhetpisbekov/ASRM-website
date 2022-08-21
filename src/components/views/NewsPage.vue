@@ -23,10 +23,10 @@
       </div>
     </div>
 
-    <div class="more-news-btn">
+    <div v-if="news.length > newsCount - 1" class="more-news-btn">
       <a @click="showMoreNews">Показать еще</a>
     </div>
-    <router-view></router-view>
+    <!-- <router-view></router-view> -->
 
     <BecomeMember />
   </div>
