@@ -43,7 +43,7 @@ const routes = [
     props: true,
   },
   {
-    path: "/activation/:uid/:token",
+    path: "/activation/:uid?/:token?",
     name: "Activation",
     component: ActivationPage,
     props: true,
