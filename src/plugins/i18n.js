@@ -252,7 +252,7 @@ const messages = {
       newAcc: "New user? Create an account!",
     },
     registrationPage: {
-      regTitle: "reate an account",
+      regTitle: "Create an account",
       accountInfo: {
         title: "Account information",
         username: "Username",

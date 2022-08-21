@@ -72,10 +72,10 @@ export default {
       isEditting: false,
       formSections: [
         {
-          title: "Account information",
+          title: "registrationPage.accountInfo.title",
           inputFields: [
             {
-              label: "Username",
+              label: "registrationPage.accountInfo.username",
               type: "text",
               name: "username",
               inputCommitter: 'SET_USERNAME',
@@ -86,13 +86,13 @@ export default {
             //   name: "password"
             // },
             {
-              label: "Email",
+              label: "registrationPage.accountInfo.email",
               type: "email",
               name: "email",
               inputCommitter: 'SET_EMAIL',
             },
             {
-              label: "Phone number",
+              label: "registrationPage.workInfo.phone",
               type: "tel",
               name: "phone",
               inputCommitter: 'SET_PHONE',
@@ -100,28 +100,28 @@ export default {
           ],
         },
         {
-          title: "Personal information",
+          title: "registrationPage.personalInfo.title",
           inputFields: [
             {
-              label: "First name",
+              label: "registrationPage.personalInfo.fname",
               type: "text",
               name: "first_name",
               inputCommitter: 'SET_FNAME',
             },
             {
-              label: "Middle name",
+              label: "registrationPage.personalInfo.mname",
               type: "text",
               name: "middle_name",
               inputCommitter: 'SET_MNAME',
             },
             {
-              label: "Last name",
+              label: "registrationPage.personalInfo.lname",
               type: "text",
               name: "last_name",
               inputCommitter: "SET_LNAME",
             },
             {
-              label: "Date of birth",
+              label: "registrationPage.personalInfo.dob",
               type: "date",
               name: "date_of_Birth",
               inputCommitter: 'SET_BDATE',
@@ -129,29 +129,29 @@ export default {
           ],
         },
         {
-          title: "Address",
+          title: "registrationPage.address.title",
           inputFields: [
             {
-              label: "Street address line 1",
+              label: "registrationPage.address.address1",
               type: "text",
               name: "address",
               inputCommitter: 'SET_ADDRESS1',
             },
             {
-              label: "Street address line 2",
+              label: "registrationPage.address.address2",
               type: "text",
               name: "address",
               inputCommitter: 'SET_ADDRESS2',
             },
 
             {
-              label: "Country",
+              label: "registrationPage.address.country",
               type: "text",
               name: "country",
               inputCommitter: 'SET_COUNTRY',
             },
             {
-              label: "City",
+              label: "registrationPage.address.city",
               type: "text",
               name: "city",
               inputCommitter: 'SET_CITY',
@@ -159,22 +159,22 @@ export default {
           ],
         },
         {
-          title: "Work information",
+          title: "registrationPage.workInfo.title",
           inputFields: [
             {
-              label: "Occupation",
+              label: "registrationPage.workInfo.occupation",
               type: "text",
               name: "profession",
               inputCommitter: 'SET_OCCUPATION',
             },
             {
-              label: "Job title",
+              label: "registrationPage.workInfo.jobTitle",
               type: "text",
               name: "job",
               inputCommitter: 'SET_JOB',
             },
             {
-              label: "Place of work",
+              label: "registrationPage.workInfo.placeOfWork",
               type: "text",
               name: "place_of_work",
               inputCommitter: 'SET_PWORK',

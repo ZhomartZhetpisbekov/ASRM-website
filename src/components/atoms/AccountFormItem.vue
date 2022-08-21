@@ -1,6 +1,6 @@
 <template>
   <div v-if="userValue || inputType == 'password' || inputName == 'middle_name'">
-    <label class="input_label">{{ inputLabel }} </label>
+    <label class="input_label">{{ $t(inputLabel) }} </label>
     <input
       v-model="userValue"
       :type="inputType"

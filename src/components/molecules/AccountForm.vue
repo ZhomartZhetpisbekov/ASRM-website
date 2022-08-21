@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <label class="section-title">{{ sectionTitle }}</label>
+    <label class="section-title">{{ $t(sectionTitle) }}</label>
     <div class="form-group">
       <AccountFormItem
         v-for="(item, index) in sectionItems"
