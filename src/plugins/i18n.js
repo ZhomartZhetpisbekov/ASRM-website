@@ -47,6 +47,7 @@ const messages = {
         ["Ссылки", "European Lung Found", "European Respiratory System"],
         ["Пресса", "Press queries"],
       ],
+      media: 'Медиа',
       contactUs: "Свяжитесь с нами",
     },
     loginPage: {
@@ -143,6 +144,7 @@ const messages = {
         ["Сілтемелер", "European Lung Found", "European Respiratory System"],
         ["БАҚ", "Press queries"],
       ],
+      media: 'Медиа',
       contactUs: "Бізбен хабарласыңыз",
     },
     loginPage: {
@@ -239,6 +241,7 @@ const messages = {
         ["Links", "European Lung Found", "European Respiratory System"],
         ["Press", "Press queries"],
       ],
+      media: 'Media',
       contactUs: "Contact us",
     },
     loginPage: {

@@ -26,6 +26,9 @@
         :source="`${imgPath}${item.pdf}`"
       />
     </div>
+    <div v-if="this.$route.params.category == 'membership'" class="join-btn">
+      <a @click="() => this.$router.push('/login')">Join</a>
+    </div>
   </div>
 </template>
 
@@ -138,6 +141,21 @@ img {
 .become-member a:hover {
   color: #fff;
   transform: scale(1.1, 1.1);
+}
+
+.join-btn {
+  margin-top: 2rem;
+}
+
+.join-btn a {
+  padding: 10px 30px;
+  border-radius: 20px;
+  text-decoration: none;
+  margin-right: 10px;
+  background: var(--main-text-color);
+  color: var(--bg-color);
+  font-family: "Gotham Pro Med";
+  transition: all ease 0.3s;
 }
 
 </style>

@@ -7,7 +7,7 @@
     />
 
     <div class="media-items-box">
-      <h2>Медиа</h2>
+      <h2>{{ $t('footer.media') }}</h2>
       <div class="media-container">
         <div class="media-row">
           <a href=""><i class="fa-brands fa-facebook fa-2x"></i></a>

@@ -23,7 +23,7 @@
         </form>
       </div>
       <div class="user-info-container" v-if="!isOnSettings" >
-
+        <div class="parsed-html" v-html="categoryDetails.text"></div>
       </div>
       <div class="user-actions-container">
         <a @click="editInfo" :class="{ activeLink: isEditting }">{{ $t('accountPage.editInfo') }}</a>
@@ -41,13 +41,29 @@ import AccountForm from "../molecules/AccountForm.vue";
 export default {
   name: "AccountPage",
   components: { AccountForm },
+  computed: {
+    categoryDetails() {
+      return this.$store.state.categoryDetails[0];
+    }
+  },
   created() {
     this.fetchUserInfo();
+  },
+  mounted() {
+    this.fetchCategoryDetails();
   },
   methods: {
     async fetchUserInfo() {
       this.loading = true;
       await this.$store.dispatch("getUserInformation");
+      this.loading = false;
+    },
+    async fetchCategoryDetails() {
+      this.loading = true;
+      await this.$store.dispatch("getCategoryDetails", {
+        group: 'society',
+        category: 'membership',
+      });
       this.loading = false;
     },
     submitHandler(e) {
@@ -231,6 +247,37 @@ a {
 .user-info-container {
   width: 75%;
 }
+
+
+.parsed-html {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.5rem;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.parsed-html >>> img {
+  width: 50%;
+}
+
+.parsed-html >>> iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+
+.parsed-html >>> ol,
+.parsed-html >>> ul {
+  padding: 0 2rem;
+}
+
+.parsed-html >>> a {
+  text-decoration: underline;
+  color: var(--text-color);
+}
+
 
 .user-actions-container {
   width: auto;
