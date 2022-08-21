@@ -42,14 +42,14 @@ export default {
         "white-space": "normal",
       },
       options: {
-        currentPage: 0,
+        currentPage: 1,
         pagination: true,
         thresholdDistance: 100,
         thresholdTime: 300,
         // deviation: "200",
         speed: 300, // Sliding speed
         loop: true, // Infinite loop
-        autoplay: 5000, // Auto play[ms]
+        autoplay: 8000, // Auto play[ms]
       },
     };
   },

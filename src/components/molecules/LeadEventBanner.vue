@@ -41,6 +41,7 @@ export default {
   background-position: center center;
   background-size: cover;
   display: flex;
+  flex-direction: row-reverse;
   align-items: center;
 }
 
