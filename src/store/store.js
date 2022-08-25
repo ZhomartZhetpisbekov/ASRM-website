@@ -19,6 +19,7 @@ export default new Vuex.Store({
     article: [],
     group: [],
     categoryDetails: [],
+    eventArticle: [],
     searchResults: [],
     aboutUs: [],
     membership: [],
@@ -104,6 +105,9 @@ export default new Vuex.Store({
     SET_CATEGORY_DETAILS(state, categoryDetails) {
       state.categoryDetails = categoryDetails;
     },
+    SET_EVENT_ARTICLE(state, eventArticle) {
+      state.eventArticle = eventArticle;
+    },
     SET_LANG(state, lang) {
       localStorage.setItem("currentLanguage", lang);
       state.currentLanguage = lang;
@@ -176,6 +180,15 @@ export default new Vuex.Store({
         )
         .then((res) => {
           commit("SET_CATEGORY_DETAILS", res.data);
+        });
+    },
+    async getEventArticle({ commit, state }, payload) {
+      return await api
+        .get(
+          `/api/v1/${state.currentLanguage}/events/${payload.category}/${payload.id}`
+        )
+        .then((res) => {
+          commit("SET_EVENT_ARTICLE", res.data);
         });
     },
     async getSearchResults({ commit, state }, payload) {

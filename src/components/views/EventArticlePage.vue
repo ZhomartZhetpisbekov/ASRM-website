@@ -33,16 +33,21 @@ export default {
     apiUrl() {
       return `${api.defaults.baseURL}`;
     },
-    articleId() {
-      return this.$route.params.article;
-    },
     article() {
-      return this.$store.state.categoryDetails.find((elem) => elem.id == this.$route.params.article);
+      return this.$store.state.eventArticle[0];
     }
+    // articleId() {
+    //   return this.$route.params.article;
+    // },
+    // category() {
+    //   return this.$route.params.category;
+    // }
+    // article() {
+    //   return this.$store.state.categoryDetails.find((elem) => elem.id == this.$route.params.article);
+    // }
   },
   mounted() {
-    console.log(this.$route.params.category);
-    console.log(this.$route.params.article);
+    this.fetchEventArticle();
     () => {
       this.newsCount = 3;
     };
@@ -50,6 +55,16 @@ export default {
   methods: {
     goBack() {
       this.$router.back();
+    },
+    async fetchEventArticle() {
+      let articleId = this.$route.params.article;
+      let category = this.$route.params.category;
+      this.loading = true;
+      await this.$store.dispatch("getEventArticle", {
+        category: category,
+        id: articleId,
+      });
+      this.loading = false;
     },
   },
 };
