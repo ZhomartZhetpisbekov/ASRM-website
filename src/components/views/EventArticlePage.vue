@@ -36,15 +36,6 @@ export default {
     article() {
       return this.$store.state.eventArticle[0];
     }
-    // articleId() {
-    //   return this.$route.params.article;
-    // },
-    // category() {
-    //   return this.$route.params.category;
-    // }
-    // article() {
-    //   return this.$store.state.categoryDetails.find((elem) => elem.id == this.$route.params.article);
-    // }
   },
   mounted() {
     this.fetchEventArticle();
