@@ -64,6 +64,7 @@ export default {
   font-size: 2rem;
   /* margin-top: 0.5rem; */
   margin-bottom: 2rem;
+  line-height: 2rem;
 }
 
 .more-news-btn {

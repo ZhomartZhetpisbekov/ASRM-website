@@ -15,7 +15,7 @@ export default new Vuex.Store({
       ? localStorage.getItem("currentLanguage")
       : "ru",
     news: [],
-    l:"",
+    l: "",
     article: [],
     group: [],
     categoryDetails: [],
@@ -180,6 +180,10 @@ export default new Vuex.Store({
         )
         .then((res) => {
           commit("SET_CATEGORY_DETAILS", res.data);
+        })
+        .catch((error) => {
+          console.log(error);
+          commit("SET_CATEGORY_DETAILS", null);
         });
     },
     async getEventArticle({ commit, state }, payload) {
@@ -236,7 +240,7 @@ export default new Vuex.Store({
           console.log(error);
         });
     },
-    async userActivate({state}, activation) {
+    async userActivate({ state }, activation) {
       console.log(activation);
       let bodyFormData = new FormData();
       bodyFormData.append("uid", activation.uid);
@@ -246,7 +250,7 @@ export default new Vuex.Store({
         .post("/auth/users/activation/", bodyFormData)
         .then(() => {
           state.l = "mal";
-          console.log('good job!');
+          console.log("good job!");
           router.push("/login");
         })
         .catch((error) => console.log(error));

@@ -5,7 +5,8 @@
     <div class="text-box">
       <p>
         <!-- {{ eventInfo[2] }} -->
-        {{ eventInfo.announcement }}.
+        <!-- {{ eventInfo.announcement }} -->
+        {{ eventInfo.title }}.
         <span class="read-more">Read More...</span>
       </p>
     </div>
@@ -30,7 +31,8 @@ export default {
   },
   methods: {
     goToEvents() {
-      this.$router.push(`events/${this.eventInfo.category}`);
+      // this.$router.push(`events/${this.eventInfo.category}`);
+      this.$router.push(`news/${this.eventInfo.id}`);
     },
   },
 };

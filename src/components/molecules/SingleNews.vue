@@ -87,7 +87,7 @@ span {
 
 .img-container {
   width: 35%;
-  height: 15rem;
+  /* height: 15rem; */
   cursor: pointer;
 }
 

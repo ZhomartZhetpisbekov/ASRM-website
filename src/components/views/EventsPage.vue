@@ -1,7 +1,10 @@
 <template>
   <div v-if="groupList.length > 0" class="information">
-    <InfoMenu :categoryList="groupList" :category="categoryDetails[0]" />
-    <EventsInfoText :category="categoryDetails"/>
+    <InfoMenu :categoryList="groupList" :category="{group: 'events'}"/>
+    <EventsInfoText v-if="categoryDetails" :category="categoryDetails"/>
+    <div v-else class="error-text">
+      <h2>Просим прощения, страница временно пуста</h2>
+    </div>
   </div>
 </template>
 
@@ -64,6 +67,12 @@ export default {
   width: 100%;
   padding: 0 8rem 4rem 8rem;
   flex-direction: row;
+}
+
+.error-text {
+  width: 100%;
+  text-align: center;
+  color: var(--text-color);
 }
 
 @media screen and (max-width: 65rem) {

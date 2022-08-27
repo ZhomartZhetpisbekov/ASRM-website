@@ -65,7 +65,7 @@ export default {
     async fetchGroup() {
       // this.group = this.$router.currentRoute.params.name;
       this.loading = true;
-      await this.$store.dispatch("getGroup", "events");
+      await this.$store.dispatch("getGroup", "news");
       this.loading = false;
     },
   },
