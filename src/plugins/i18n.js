@@ -32,6 +32,11 @@ const messages = {
       title: "Станьте частью сообщества!",
       readMoreBtn: "Узнать больше",
     },
+    events: {
+      upcoming: "Предстоящие мероприятия",
+      archive: "Архив мероприятий",
+      educational: "Образовательные программы для пациентов",
+    },
     footer: {
       title: "АСРМ",
       menuGroups: [
@@ -129,6 +134,11 @@ const messages = {
       title: "Мүше болe!",
       readMoreBtn: "Оқу",
     },
+    events: {
+      upcoming: "Алдағы оқиғалар",
+      archive: "Оқиғалар мұрағаты",
+      educational: "Пациенттерге арналған білім беру бағдарламалары",
+    },
     footer: {
       title: "АСРМ",
       menuGroups: [
@@ -225,6 +235,11 @@ const messages = {
     becomeMember: {
       title: "Become member!",
       readMoreBtn: "Read more",
+    },
+    events: {
+      upcoming: "Upcoming events",
+      archive: "Archive events",
+      educational: "Educational programs for patients",
     },
     footer: {
       title: "ASRM",

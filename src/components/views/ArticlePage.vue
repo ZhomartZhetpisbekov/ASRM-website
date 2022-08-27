@@ -179,7 +179,8 @@ a {
 
 .article-container img {
   width: 100%;
-  height: 24rem;
+  /* height: 24rem; */
+  height: auto;
   object-fit: cover;
 }
 

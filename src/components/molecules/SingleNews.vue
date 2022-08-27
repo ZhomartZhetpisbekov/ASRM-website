@@ -87,11 +87,13 @@ span {
 
 .img-container {
   width: 35%;
+  height: 15rem;
   cursor: pointer;
 }
 
 .img-container img {
   width: 100%;
+  /* max-height: 15rem; */
   height: 100%;
   object-fit: cover;
 }
@@ -133,6 +135,7 @@ span {
   .img-container {
     /* margin-left: 2rem; */
     position: relative;
+    height: auto;
     /* width: 10rem; */
   }
   .img-container img {

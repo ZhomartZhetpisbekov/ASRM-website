@@ -4,7 +4,8 @@
     :class="{ active: this.activeGiven }"
     @click="changeRoute"
   >
-    <p>{{ this.title }}</p>
+    <p v-if="group == 'events'">{{ $t(`events.${this.category}`) }}</p>
+    <p v-else>{{ this.title }}</p>
   </li>
 </template>
 
