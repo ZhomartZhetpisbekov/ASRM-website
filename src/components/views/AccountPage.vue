@@ -69,8 +69,8 @@ export default {
     submitHandler(e) {
       e.preventDefault();
       this.isEditting = false;
-      // console.log(this.$store)
       this.$store.dispatch('a/modifyUser');
+      this.$router.go();
     },
     editInfo() {
       this.isEditting = true;
@@ -127,7 +127,7 @@ export default {
             {
               label: "registrationPage.personalInfo.mname",
               type: "text",
-              name: "middle_name",
+              name: "fatherland",
               inputCommitter: 'SET_MNAME',
             },
             {

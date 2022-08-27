@@ -9,8 +9,8 @@
       </p> -->
       <div v-html="aboutUs.text"></div>
       <div class="buttons-container">
-        <a @mousedown="goToMembership">{{ $t("aboutUs.joinBtn") }}</a>
-        <a @mousedown="goToSociety">{{ $t("aboutUs.readMoreBtn") }}</a>
+        <a @touch="goToMembership" @mousedown="goToMembership">{{ $t("aboutUs.joinBtn") }}</a>
+        <a @touch="goToSociety" @mousedown="goToSociety">{{ $t("aboutUs.readMoreBtn") }}</a>
       </div>
     </div>
   </div>

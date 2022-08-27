@@ -8,6 +8,7 @@
         <a
           v-for="(item, index) in leadEvent.urls"
           :key="index"
+          @touch="goLink(item.url)"
           @mousedown="goLink(item.url)"
           >{{ item.text }}</a
         >

@@ -2,7 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import api from "../services/api";
 import router from "../router/index";
-import axios from "axios";
+// import axios from "axios";
 
 Vue.use(Vuex);
 
@@ -146,38 +146,34 @@ export const userStore = {
         : {};
       state.job != "" ? data.append("job", state.job) : {};
 
-      // console.log("token: ", localStorage.getItem("token"));
+      // for (var pair of data.entries()) {
+      //   console.log(pair[0] + ", " + pair[1]);
+      // }
+      let attributes = new URLSearchParams(data).toString();
+      console.log(attributes);
 
-      for (var pair of data.entries()) {
-        console.log(pair[0] + ", " + pair[1]);
-      }
+      // console.log(parameters);
+      // var config = {
+      //   method: "patch",
+      //   url: `${api.defaults.baseURL}/auth/users/me`,
+      //   headers: {
+      //     Authorization: `token ${localStorage.getItem("token")}`,
+      //     "Content-Type": "application/x-www-form-urlencoded",
+      //   },
+      //   data: attributes,
+      // };
 
-      var config = {
-        method: "patch",
-        url: `${api.defaults.baseURL}/auth/users/me`,
-        headers: {
-          Authorization: `token ${localStorage.getItem("token")}`,
-          'Content-Type': 'multipart/form-data'
-          // ...data.getHeaders(),
-        },
-        data: data,
-      };
-
-      axios(config)
-        .then(function(response) {
-          console.log(JSON.stringify(response.data));
-          console.log("put successfull");
+      await api
+        .patch("auth/users/me/", attributes, {
+          headers: {
+            Authorization: `token ${localStorage.getItem("token")}`,
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
         })
-        .catch(function(error) {
-          console.log(error);
-        });
-
-      // await api
-      //   .put("auth/users/me", bodyFormData, {headers: {'Authorization': 'token ${localStorage.getItem("token")}'}})
-      //   .then(() => {
-      //     console.log("posted successfully");
-      //   })
-      //   .catch((error) => console.log(error));
+        .then((res) => {
+          console.log(JSON.stringify(res.data));
+        })
+        .catch((error) => console.log(error));
     },
   },
 };
