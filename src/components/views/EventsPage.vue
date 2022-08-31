@@ -21,9 +21,9 @@ export default {
   data() {
     return {
       groupList: [
+        {category: 'educational', title: 'Образовательные программы для пациентов'},
         {category: 'archive', title: 'Архив мероприятий'},
         {category: 'upcoming', title: 'Предстоящие мероприятия'},
-        {category: 'educational', title: 'Образовательные программы для пациентов'}
       ],
       category: '',
     }

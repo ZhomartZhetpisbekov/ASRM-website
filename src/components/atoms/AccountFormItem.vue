@@ -7,13 +7,6 @@
       :readonly="isReadOnly"
       :class="{ activeInput: !isReadOnly }"
     />
-    <!-- <input
-      v-else
-      :value="inputType == 'password' ? 'lolipendr' : userValue"
-      :type="inputType"
-      :readonly="isReadOnly"
-      :class="{ activeInput: !isReadOnly }"
-    /> -->
   </div>
 </template>
 

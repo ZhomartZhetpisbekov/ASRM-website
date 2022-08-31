@@ -146,22 +146,8 @@ export const userStore = {
         : {};
       state.job != "" ? data.append("job", state.job) : {};
 
-      // for (var pair of data.entries()) {
-      //   console.log(pair[0] + ", " + pair[1]);
-      // }
       let attributes = new URLSearchParams(data).toString();
-      console.log(attributes);
-
-      // console.log(parameters);
-      // var config = {
-      //   method: "patch",
-      //   url: `${api.defaults.baseURL}/auth/users/me`,
-      //   headers: {
-      //     Authorization: `token ${localStorage.getItem("token")}`,
-      //     "Content-Type": "application/x-www-form-urlencoded",
-      //   },
-      //   data: attributes,
-      // };
+      // console.log(attributes);
 
       await api
         .patch("auth/users/me/", attributes, {
