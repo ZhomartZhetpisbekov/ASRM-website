@@ -1,16 +1,26 @@
 <template>
   <div class="account-page">
-    <h2>{{ $t('accountPage.title') }}</h2>
+    <h2>{{ $t("accountPage.title") }}</h2>
     <div class="account-categories">
-      <a @click="toggleIsOnSettings('settings')" :class="{ activeLink: isOnSettings }">{{ $t('accountPage.accountSetting') }}</a>
-      <a @click="toggleIsOnSettings('membership')" :class="{ activeLink: !isOnSettings }">{{ $t('accountPage.membership') }}</a>
+      <a
+        @click="() => this.$router.push('/account/settings')"
+        :class="{ activeLink: currentSection == 'settings' }"
+        >{{ $t("accountPage.accountSetting") }}</a
+      >
+      <a
+        @click="() => this.$router.push('/account/membership')"
+        :class="{ activeLink: currentSection == 'membership' }"
+        >{{ $t("accountPage.membership") }}</a
+      >
     </div>
     <hr />
     <div class="main-content">
       <div class="main-edit">
-        <a @click="editInfo" :class="{ activeLink: isEditting }">{{ $t('accountPage.editInfo') }}</a>
+        <a @click="editInfo" :class="{ activeLink: isEditting }">{{
+          $t("accountPage.editInfo")
+        }}</a>
       </div>
-      <div class="user-info-container" v-if="isOnSettings" >
+      <div v-if="currentSection == 'settings'" class="user-info-container">
         <form @submit="submitHandler">
           <AccountForm
             v-for="(item, index) in formSections"
@@ -19,16 +29,35 @@
             :sectionItems="item.inputFields"
             :isReadOnly="!isEditting"
           />
-          <input v-if="isEditting" type="submit" value="Save" class="submit-btn">
+          <input
+            v-if="isEditting"
+            type="submit"
+            value="Save"
+            class="submit-btn"
+          />
         </form>
       </div>
-      <div class="user-info-container" v-if="!isOnSettings" >
+      <div v-if="currentSection == 'membership'" class="user-info-container">
         <div class="parsed-html" v-html="categoryDetails.text"></div>
       </div>
+      <div v-if="currentSection == 'reset'" class="user-info-container">
+        <Reset />
+      </div>
       <div class="user-actions-container">
-        <a @click="editInfo" :class="{ activeLink: isEditting }">{{ $t('accountPage.editInfo') }}</a>
-        <a>{{ $t('accountPage.deleteAccount') }}</a>
-        <a @click="signOutHandler">{{ $t('accountPage.signOut') }}</a>
+        <a @click="editInfo" :class="{ activeLink: isEditting }">{{
+          $t("accountPage.editInfo")
+        }}</a>
+        <a @click="() => this.$router.push('/account/reset/username')">{{
+          $t("reset.username")
+        }}</a>
+        <a @click="() => this.$router.push('/account/reset/password')">{{
+          $t("reset.password")
+        }}</a>
+        <a @click="() => this.$router.push('/account/reset/email')">{{
+          $t("reset.email")
+        }}</a>
+        <a>{{ $t("accountPage.deleteAccount") }}</a>
+        <a @click="signOutHandler">{{ $t("accountPage.signOut") }}</a>
       </div>
     </div>
   </div>
@@ -36,20 +65,25 @@
 
 <script>
 import AccountForm from "../molecules/AccountForm.vue";
+import Reset from "../UI/Reset.vue";
 // import i18n from "../../plugins/i18n";
 
 export default {
   name: "AccountPage",
-  components: { AccountForm },
+  components: { AccountForm, Reset },
   computed: {
     categoryDetails() {
       return this.$store.state.categoryDetails[0];
-    }
+    },
+    currentSection() {
+      return this.$route.params.section;
+    },
   },
   created() {
     this.fetchUserInfo();
   },
   mounted() {
+    this.$router.push("/account/settings");
     this.fetchCategoryDetails();
   },
   methods: {
@@ -61,30 +95,29 @@ export default {
     async fetchCategoryDetails() {
       this.loading = true;
       await this.$store.dispatch("getCategoryDetails", {
-        group: 'society',
-        category: 'membership',
+        group: "society",
+        category: "membership",
       });
       this.loading = false;
     },
     submitHandler(e) {
       e.preventDefault();
       this.isEditting = false;
-      this.$store.dispatch('a/modifyUser');
+      this.$store.dispatch("a/modifyUser");
       this.$router.go();
     },
     editInfo() {
-      this.isEditting = true;
-    },
-    toggleIsOnSettings(route) {
-      route == 'membership' ? this.isOnSettings = false : this.isOnSettings = true;
+      this.$route.params.section != "settings"
+        ? this.$router.push('/account/settings')
+        : (this.isEditting = true);
     },
     signOutHandler() {
       this.$store.dispatch("userLogOut");
-    }
+    },
   },
   data() {
     return {
-      isOnSettings: true,
+      // currentSection: 'settings',
       isEditting: false,
       formSections: [
         {
@@ -94,7 +127,7 @@ export default {
               label: "registrationPage.accountInfo.username",
               type: "text",
               name: "username",
-              inputCommitter: 'SET_USERNAME',
+              inputCommitter: "SET_USERNAME",
             },
             // {
             //   label: "Password",
@@ -105,13 +138,13 @@ export default {
               label: "registrationPage.accountInfo.email",
               type: "email",
               name: "email",
-              inputCommitter: 'SET_EMAIL',
+              inputCommitter: "SET_EMAIL",
             },
             {
               label: "registrationPage.workInfo.phone",
               type: "tel",
               name: "phone",
-              inputCommitter: 'SET_PHONE',
+              inputCommitter: "SET_PHONE",
             },
           ],
         },
@@ -122,13 +155,13 @@ export default {
               label: "registrationPage.personalInfo.fname",
               type: "text",
               name: "first_name",
-              inputCommitter: 'SET_FNAME',
+              inputCommitter: "SET_FNAME",
             },
             {
               label: "registrationPage.personalInfo.mname",
               type: "text",
               name: "fatherland",
-              inputCommitter: 'SET_MNAME',
+              inputCommitter: "SET_MNAME",
             },
             {
               label: "registrationPage.personalInfo.lname",
@@ -140,7 +173,7 @@ export default {
               label: "registrationPage.personalInfo.dob",
               type: "date",
               name: "date_of_Birth",
-              inputCommitter: 'SET_BDATE',
+              inputCommitter: "SET_BDATE",
             },
           ],
         },
@@ -151,26 +184,26 @@ export default {
               label: "registrationPage.address.address1",
               type: "text",
               name: "address",
-              inputCommitter: 'SET_ADDRESS1',
+              inputCommitter: "SET_ADDRESS1",
             },
             {
               label: "registrationPage.address.address2",
               type: "text",
               name: "address",
-              inputCommitter: 'SET_ADDRESS2',
+              inputCommitter: "SET_ADDRESS2",
             },
 
             {
               label: "registrationPage.address.country",
               type: "text",
               name: "country",
-              inputCommitter: 'SET_COUNTRY',
+              inputCommitter: "SET_COUNTRY",
             },
             {
               label: "registrationPage.address.city",
               type: "text",
               name: "city",
-              inputCommitter: 'SET_CITY',
+              inputCommitter: "SET_CITY",
             },
           ],
         },
@@ -181,19 +214,19 @@ export default {
               label: "registrationPage.workInfo.occupation",
               type: "text",
               name: "profession",
-              inputCommitter: 'SET_OCCUPATION',
+              inputCommitter: "SET_OCCUPATION",
             },
             {
               label: "registrationPage.workInfo.jobTitle",
               type: "text",
               name: "job",
-              inputCommitter: 'SET_JOB',
+              inputCommitter: "SET_JOB",
             },
             {
               label: "registrationPage.workInfo.placeOfWork",
               type: "text",
               name: "place_of_work",
-              inputCommitter: 'SET_PWORK',
+              inputCommitter: "SET_PWORK",
             },
           ],
         },
@@ -248,7 +281,6 @@ a {
   width: 75%;
 }
 
-
 .parsed-html {
   display: flex;
   flex-direction: column;
@@ -278,7 +310,6 @@ a {
   color: var(--text-color);
 }
 
-
 .user-actions-container {
   width: auto;
   display: flex;
@@ -290,7 +321,7 @@ a {
   padding: 1rem 3rem;
   background: #005963;
   font-size: 1rem;
-  font-family: 'Gotham Pro Med';
+  font-family: "Gotham Pro Med";
   color: #fff;
   border: 0;
   cursor: pointer;

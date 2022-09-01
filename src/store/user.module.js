@@ -25,6 +25,10 @@ export const userStore = {
     country: "",
     place_of_work: "",
     job: "",
+    newUsername: "",
+    newPassword: "",
+    newEmail: "",
+    currentPassword: "",
     regError: false,
     errorMsg: "Username or Mail already in use",
   },
@@ -81,6 +85,18 @@ export const userStore = {
     },
     SET_PHONE(state, payload) {
       state.phone = payload;
+    },
+    SET_NEW_USERNAME(state, payload) {
+      state.newUsername = payload;
+    },
+    SET_NEW_PASSWORD(state, payload) {
+      state.newPassword = payload;
+    },
+    SET_NEW_EMAIL(state, payload) {
+      state.newEmail = payload;
+    },
+    SET_CURRENT_PASSWORD(state, payload) {
+      state.currentPassword = payload;
     },
   },
   actions: {
@@ -158,6 +174,56 @@ export const userStore = {
         })
         .then((res) => {
           console.log(JSON.stringify(res.data));
+        })
+        .catch((error) => console.log(error));
+    },
+    async reset_username({ state }) {
+      let data = new FormData();
+      data.append("new_username", state.newUsername);
+      data.append("current_password", state.currentPassword);
+
+      await api
+        .post("/auth/users/set_username/", data, {
+          headers: {
+            Authorization: `token ${localStorage.getItem("token")}`,
+          },
+        })
+        .then((response) => {
+          console.log(response);
+          router.push("/account/settings");
+        });
+    },
+    async reset_password({ state }) {
+      let data = new FormData();
+      data.append("new_password", state.newPassword);
+      data.append("current_password", state.currentPassword);
+
+      await api
+        .post("/auth/users/set_password/", data, {
+          headers: {
+            Authorization: `token ${localStorage.getItem("token")}`,
+          },
+        })
+        .then((response) => {
+          console.log(response);
+          router.push("/account/settings");
+        });
+    },
+    async reset_email({ state }) {
+      let data = new FormData();
+      data.append("email", state.newEmail);
+      let attributes = new URLSearchParams(data).toString();
+
+      await api
+        .patch("auth/users/me/", attributes, {
+          headers: {
+            Authorization: `token ${localStorage.getItem("token")}`,
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        })
+        .then((res) => {
+          console.log(JSON.stringify(res.data));
+          router.push('/activation');
         })
         .catch((error) => console.log(error));
     },

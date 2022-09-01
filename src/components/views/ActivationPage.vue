@@ -4,18 +4,18 @@
       v-if="this.$route.params.uid && this.$route.params.token"
       class="activation-message"
     >
-      <h2>Congratulations</h2>
+      <h2>{{ $t('activation.successfull.title') }}</h2>
       <p>
-        Your email was succesfully confirmed. You can now login!
+        {{ $t('activation.successfull.text') }}
       </p>
     </div>
     <div v-else class="activation-message">
-      <h2>Email Confirmation</h2>
+      <h2>{{ $t('activation.title') }}</h2>
       <p>
-        We have sent email to the mail you wrote during registration!
+        {{ $t('activation.text[0]') }}
       </p>
       <p>
-        Follow the link provided in the received mail to confirm your account
+        {{ $t('activation.text[1]') }}
       </p>
     </div>
   </section>
@@ -81,6 +81,7 @@ export default {
   font-family: "Gotham Pro Bold";
   font-size: 2rem;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .activation-message > p {

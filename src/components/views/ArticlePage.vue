@@ -5,7 +5,7 @@
         <img v-if="article.length > 0" :src="this.imgPath" alt="" />
         <div class="text-block">
           <h3>{{ article[0].title }}</h3>
-          <span class="article-date">{{ article[0].date }}</span>
+          <!-- <span class="article-date">{{ article[0].date }}</span> -->
           <div class="parsed-html" v-html="article[0].text"></div>
           <div class="go-back-btn mobile">
             <a @click="goBack">

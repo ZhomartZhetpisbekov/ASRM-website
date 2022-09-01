@@ -3,7 +3,7 @@
     <p>
       {{ title }}
     </p>
-    <span class="similar-news-date"> {{ date }}</span>
+    <!-- <span class="similar-news-date"> {{ date }}</span> -->
   </div>
 </template>
 

@@ -9,7 +9,7 @@
         required
         v-model="usernameRef"
         type="text"
-        placeholder="Email or Phone"
+        placeholder="Username"
         id="username"
       />
       <!-- <label style="margin-bottom: 1rem; color: red" v-if="!loginError"

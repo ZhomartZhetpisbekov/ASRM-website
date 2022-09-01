@@ -7,7 +7,7 @@
         :key="index"
         :inputLabel="item.label"
         :inputType="item.type"
-        :isReadOnly="item.name == 'username' || item.name == 'email' ? true : isReadOnly"
+        :isReadOnly="item.name == 'username' ? true : isReadOnly"
         :inputName="item.name"
         :inputCommitter="item.inputCommitter"
       />

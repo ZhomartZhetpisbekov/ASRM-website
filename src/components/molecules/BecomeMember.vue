@@ -98,7 +98,7 @@ a:hover {
 
 .image-container {
   width: 30%;
-  background-image: url(../../assets/HomePage/become-member3.jpg);
+  background-image: url(../../assets/HomePage/become-member4.jpg);
   background-position: center center;
   /* background-attachment: fixed; */
   background-size: cover;

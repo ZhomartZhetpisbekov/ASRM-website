@@ -5,7 +5,7 @@
         <img :src="this.apiUrl + article.main_image" alt="" />
         <div class="text-block">
           <h3>{{ article.title }}</h3>
-          <span>{{ article.date }}</span>
+          <!-- <span>{{ article.date }}</span> -->
           <div class="parsed-html" v-html="article.text"></div>
         </div>
       </div>

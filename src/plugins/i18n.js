@@ -27,7 +27,7 @@ const messages = {
       joinBtn: "Вступить",
       readMoreBtn: "Подробнее",
     },
-    upcommingEvents: "Предстоящие мероприятия",
+    upcommingEvents: "События респираторных сообществ",
     becomeMember: {
       title: "Станьте частью сообщества!",
       readMoreBtn: "Узнать больше",
@@ -54,6 +54,11 @@ const messages = {
       ],
       media: 'Медиа',
       contactUs: "Свяжитесь с нами",
+    },
+    paidArticle: {
+      title: 'Продолжить чтение',
+      text: 'Вступите в сообщество, чтобы получить доступ ко всем статьям!',
+      link: 'Вступить'
     },
     loginPage: {
       loginTitle: "Авторизация",
@@ -103,7 +108,26 @@ const messages = {
       editInfo: "Редактировать",
       deleteAccount: "Удалить аккаунт",
       signOut: "Выйти",
-      formDetails: [{}],
+      save: 'Cохранить'
+    },
+    activation: {
+      successfull: {
+        title: 'Поздравляем',
+        text: 'Ваша почта была успешно подтверждена. Теперь вы можете авторизоваться!',
+      },
+      title: 'Подтверждение почты',
+      text: ['Мы отправили письмо с потверждением на вашу почту!', 'Перейдите по ссылке в письме, чтобы подтвердить свой аккаунт'],
+    },
+    reset: {
+      username: 'Изменить имя пользователя',
+      password: 'Изменить пароль',
+      email: 'Изменить электронную почту',
+      formLabels: {
+        currentPassword: 'Текущий пароль',
+        newUsername: 'Новое имя пользователя',
+        newPassword: 'Новый пароль',
+        newEmail: 'Новая электронная почта'
+      }
     },
   },
   kz: {
@@ -129,7 +153,7 @@ const messages = {
       joinBtn: "Кіру",
       readMoreBtn: "Оқу",
     },
-    upcommingEvents: "Оқиғалар",
+    upcommingEvents: "Респираторлық қауымдастық оқиғалары",
     becomeMember: {
       title: "Мүше болe!",
       readMoreBtn: "Оқу",
@@ -157,54 +181,79 @@ const messages = {
       media: 'Медиа',
       contactUs: "Бізбен хабарласыңыз",
     },
+    paidArticle: {
+      title: 'Оқуды жалғастыру',
+      text: 'Барлық мақалаларға қол жеткізу үшін қауымдастыққа қосылыңыз!',
+      link: 'Қосылыңыз'
+    },
     loginPage: {
-      loginTitle: "Login KZ",
-      login: "Log in",
-      registration: "Sign up",
+      loginTitle: "Авторизация",
+      login: "Кіру",
+      registration: "Тіркелу",
       username: "Username",
       password: "Password",
-      remember: "Remember me",
-      forget: "Forgot password?",
-      newAcc: "New user? Create an account!",
+      remember: "Есте сақтау",
+      forget: "Пароль умытылды?",
+      newAcc: "Жаңа қолданушысызба? Осында тіркеліңіз!",
     },
     registrationPage: {
-      regTitle: "Создать аккаунт",
+      regTitle: "Тіркелу",
       accountInfo: {
-        title: "Информация об аккаунте",
-        username: "Имя пользователя",
-        email: "Почта",
-        password: "Пароль",
-        passwordConfirm: "Потвердите пароль",
+        title: "Аккаунт жайлы ақпарат",
+        username: "Аккаунт аты",
+        email: "Электронды пошта",
+        password: "Құпия сөз",
+        passwordConfirm: "Қайталаңыз",
       },
       personalInfo: {
-        title: "Личная информация",
-        fname: "Имя",
-        mname: "Отчество",
-        lname: "Фамилия",
-        dob: "Дата рождения",
+        title: "Жеке ақпарат",
+        fname: "Есімі",
+        mname: "Әкесінің аты",
+        lname: "Тегі",
+        dob: "Туған күні",
       },
       address: {
-        title: "Адрес",
-        address1: "Адрес проживания 1",
-        address2: "Адрес проживания 2",
-        country: "Страна",
-        city: "Город",
+        title: "Мекенжай",
+        address1: "Мекенжай 1",
+        address2: "Мекенжай 2",
+        country: "Ел",
+        city: "Қала",
       },
       workInfo: {
-        title: "Информация о работе",
-        occupation: "Профессия",
-        jobTitle: "Должность",
-        placeOfWork: "Место работы",
-        phone: "Номер телефона",
+        title: "Жұмыс туралы ақпарат",
+        occupation: "Мамандық",
+        jobTitle: "Қызмет атауы",
+        placeOfWork: "Жұмыс орны",
+        phone: "Телефон нөмірі",
       },
     },
     accountPage: {
-      title: "Личный кабинет KZ",
-      accountSetting: "Настройки аккаунта",
-      membership: "Членство",
-      editInfo: "Редактировать",
-      deleteAccount: "Удалить аккаунт",
-      signOut: "Выйти",
+      title: "Жеке бөлме",
+      accountSetting: "Аккаунт баптаулары",
+      membership: "Мүшелік",
+      editInfo: "Өңдеу",
+      deleteAccount: "Аккаунтты жою",
+      signOut: "Шығу",
+      save: 'Сақтау'
+    },
+    activation: {
+      successfull: {
+        title: 'Құттықтаймыз',
+        text: 'Поштаңыз сәтті расталды. Енді сіз жүйеге кіре аласыз!',
+      },
+      title: 'Электрондық поштаны растау',
+      text: ['Электрондық поштаңызға растау хатын жібердік!', 'Тіркелгіңізді растау үшін электрондық поштадағы сілтемені орындаңыз'],
+    },
+    reset: {
+      username: 'Аккаунт атың өзгерту',
+      password: 'Құпия сөзді өзгерту',
+      email: 'Электронды поштаны өзгерту',
+      formLabels: {
+        currentPassword: 'Қазіргі құпия сөз',
+        newUsername: 'Жаңа аккаунт аты',
+        newPassword: 'Жаңа құпия сөз',
+        newEmail: 'Жаңа электронды пошта'
+      }
     },
   },
 
@@ -231,7 +280,7 @@ const messages = {
       joinBtn: "Join",
       readMoreBtn: "Read more",
     },
-    upcommingEvents: "Upcomming events",
+    upcommingEvents: "Respiratory Community Events",
     becomeMember: {
       title: "Become member!",
       readMoreBtn: "Read more",
@@ -258,6 +307,11 @@ const messages = {
       ],
       media: 'Media',
       contactUs: "Contact us",
+    },
+    paidArticle: {
+      title: 'Continue reading',
+      text: 'Become member to gain access to more articles!',
+      link: 'Join our community'
     },
     loginPage: {
       loginTitle: "Login",
@@ -307,6 +361,26 @@ const messages = {
       editInfo: "Edit information",
       deleteAccount: "Delete account",
       signOut: "Sign out",
+      save: 'Save'
+    },
+    activation: {
+      successfull: {
+        title: 'Congratulations',
+        text: 'Your email was succesfully confirmed. You can now login!',
+      },
+      title: 'Email Confirmation',
+      text: ['We have sent email to the mail you wrote during registration!', 'Follow the link provided in the received mail to confirm your account'],
+    },
+    reset: {
+      username: 'Reset username',
+      password: 'Reset password',
+      email: 'Reset email',
+      formLabels: {
+        currentPassword: 'Current password',
+        newUsername: 'New username',
+        newPassword: 'New password',
+        newEmail: 'New email'
+      }
     },
   },
 };

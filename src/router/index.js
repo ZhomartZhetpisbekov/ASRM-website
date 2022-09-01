@@ -49,7 +49,7 @@ const routes = [
     props: true,
   },
   {
-    path: "/account",
+    path: "/account/:section?/:resetEntity?",
     name: "Account",
     component: AccountPage,
     props: true,

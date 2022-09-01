@@ -8,9 +8,9 @@
       v-html="category.text"
     ></div>
     <div v-if="isShortText" class="become-member">
-      <h3>Continue reading</h3>
-      <p>Become cucumber to read more</p>
-      <a>Click here</a>
+      <h3>{{ $t('paidArticle.title') }}</h3>
+      <p>{{ $t('paidArticle.text') }}</p>
+      <a @click="() => this.$router.push('/login')">{{ $t('paidArticle.link') }}</a>
     </div>
     <div v-if="category.pdfs.length > 0">
       <a
@@ -27,7 +27,7 @@
       />
     </div>
     <div v-if="this.$route.params.category == 'membership'" class="join-btn">
-      <a @click="() => this.$router.push('/login')">Join</a>
+      <a @click="() => this.$router.push('/login')">{{ $t('footer.menuGroups[1][2]') }}</a>
     </div>
   </div>
 </template>
@@ -109,7 +109,7 @@ img {
 .active {
   -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
   mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
-  height: 30%;
+  /* height: 30%; */
 }
 
 .become-member {

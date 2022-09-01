@@ -2,14 +2,14 @@
   <div class="single-news-container">
     <div @click="goToArticle" class="img-container">
       <img :src="imgPath" alt="" />
-      <span class="mobile-view-date">{{ date }}</span>
+      <!-- <span class="mobile-view-date">{{ date }}</span> -->
     </div>
     <div @click="goToArticle" class="text-block">
       <h3>{{ title }}</h3>
       <p>
         {{ shortText.slice(0, 250) + ".." }}
       </p>
-      <span>{{ date }}</span>
+      <!-- <span>{{ date }}</span> -->
     </div>
   </div>
 </template>

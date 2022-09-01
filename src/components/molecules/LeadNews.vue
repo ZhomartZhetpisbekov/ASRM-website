@@ -9,7 +9,7 @@
       <p>
         {{ shortText.slice(0, 250) + ".." }}
       </p>
-      <span class="single-news-date">{{ date }}</span>
+      <!-- <span class="single-news-date">{{ date }}</span> -->
     </div>
     <!-- </a> -->
   </div>
