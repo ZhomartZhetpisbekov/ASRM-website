@@ -54,17 +54,17 @@ export default {
 
 @font-face {
   font-family: "Gotham Pro Med";
-  src: url("assets/Gotham_Pro_Font/GothaProMed.otf");
+  src: url("assets/Gotham_Pro_Font/Montserrat-Bold.ttf");
 }
 
 @font-face {
   font-family: "Gotham Pro Bold";
-  src: url("assets/Gotham_Pro_Font/GothaProBol.otf");
+  src: url("assets/Gotham_Pro_Font/Montserrat-Bold.ttf");
 }
 
 @font-face {
   font-family: "Gotham Pro";
-  src: url("assets/Gotham_Pro_Font/GothaProReg.otf");
+  src: url("assets/Gotham_Pro_Font/Montserrat-Regular.ttf");
 }
 
 *,
