@@ -49,7 +49,8 @@ export default {
   },
   computed: {
     events() {
-      return this.$store.state.group;
+      // return this.$store.state.group;
+      return this.$store.state.upcomingEvents.concat(this.$store.state.group);
     },
   },
   mounted() {
@@ -66,6 +67,7 @@ export default {
       // this.group = this.$router.currentRoute.params.name;
       this.loading = true;
       await this.$store.dispatch("getGroup", "news");
+      await this.$store.dispatch("getUpcomingEvents");
       this.loading = false;
     },
   },

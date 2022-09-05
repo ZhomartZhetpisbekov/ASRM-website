@@ -18,6 +18,7 @@ export default new Vuex.Store({
     l: "",
     article: [],
     group: [],
+    upcomingEvents: [],
     categoryDetails: [],
     eventArticle: [],
     searchResults: [],
@@ -99,6 +100,9 @@ export default new Vuex.Store({
     SET_GROUP(state, group) {
       state.group = group;
     },
+    SET_UPCOMING_EVENTS(state, upcomingEvents) {
+      state.upcomingEvents = upcomingEvents;
+    },
     EMPTY_GROUP(state) {
       state.group = [];
     },
@@ -171,6 +175,13 @@ export default new Vuex.Store({
         .get(`/api/v1/${state.currentLanguage}/${group}`)
         .then((res) => {
           commit("SET_GROUP", res.data);
+        });
+    },
+    async getUpcomingEvents({ commit, state }) {
+      return await api
+        .get(`/api/v1/${state.currentLanguage}/events/upcoming`)
+        .then((res) => {
+          commit("SET_UPCOMING_EVENTS", res.data);
         });
     },
     async getCategoryDetails({ commit, state }, payload) {
