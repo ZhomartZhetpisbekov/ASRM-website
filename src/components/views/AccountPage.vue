@@ -41,7 +41,7 @@
         <div class="parsed-html" v-html="categoryDetails.text"></div>
       </div>
       <div v-if="currentSection == 'reset'" class="user-info-container">
-        <Reset />
+        <ResetPassword />
       </div>
       <div class="user-actions-container">
         <a @click="editInfo" :class="{ activeLink: isEditting }">{{
@@ -65,12 +65,12 @@
 
 <script>
 import AccountForm from "../molecules/AccountForm.vue";
-import Reset from "../UI/Reset.vue";
+import ResetPassword from "../UI/ResetPassword.vue";
 // import i18n from "../../plugins/i18n";
 
 export default {
   name: "AccountPage",
-  components: { AccountForm, Reset },
+  components: { AccountForm, ResetPassword },
   computed: {
     categoryDetails() {
       return this.$store.state.categoryDetails[0];

@@ -3,19 +3,7 @@
     <div v-if="index" class="content-container">
       <!-- <h2>{{ $t('becomeMember.title') }}</h2> -->
       <h2>{{ index.title }}</h2>
-      <div v-html="index.text" class="text-content">
-        <!-- <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-          lobortis rhoncus hendrerit. Quisque mattis ante sit amet dictum
-          finibus. Sed scelerisque augue eget gravida pellentesque.
-        </p>
-        <p>
-          Vivamus ultrices mauris eu lectus fringilla, eu finibus leo lobortis.
-          Morbi quis dui quam. Donec finibus eros nulla, in auctor tortor
-          pharetra a. Ut interdum eros sit amet egestas cursus. Nulla fringilla
-          aliquet varius.
-        </p> -->
-      </div>
+      <div v-html="index.text" class="text-content"></div>
       <a href="/society/membership">{{ $t("becomeMember.readMoreBtn") }}</a>
     </div>
     <div class="image-container"></div>
